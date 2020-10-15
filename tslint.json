@@ -1,148 +1,60 @@
 {
-  "extends": "tslint:recommended",
-  "rules": {
-    "align": {
-      "options": [
-        "parameters",
-        "statements"
-      ]
-    },
-    "array-type": false,
-    "arrow-return-shorthand": true,
-    "curly": true,
-    "deprecation": {
-      "severity": "warning"
-    },
-    "component-class-suffix": true,
-    "contextual-lifecycle": true,
-    "directive-class-suffix": true,
-    "directive-selector": [
-      true,
-      "attribute",
-      "app",
-      "camelCase"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      "app",
-      "kebab-case"
-    ],
-    "eofline": true,
-    "import-blacklist": [
-      true,
-      "rxjs/Rx"
-    ],
-    "import-spacing": true,
-    "indent": {
-      "options": [
-        "spaces"
-      ]
-    },
-    "max-classes-per-file": false,
-    "max-line-length": [
-      true,
-      140
-    ],
-    "member-ordering": [
-      true,
-      {
-        "order": [
-          "static-field",
-          "instance-field",
-          "static-method",
-          "instance-method"
-        ]
-      }
-    ],
-    "no-console": [
-      true,
-      "debug",
-      "info",
-      "time",
-      "timeEnd",
-      "trace"
-    ],
-    "no-empty": false,
-    "no-inferrable-types": [
-      true,
-      "ignore-params"
-    ],
-    "no-non-null-assertion": true,
-    "no-redundant-jsdoc": true,
-    "no-switch-case-fall-through": true,
-    "no-var-requires": false,
-    "object-literal-key-quotes": [
-      true,
-      "as-needed"
-    ],
-    "quotemark": [
-      true,
-      "single"
-    ],
-    "semicolon": {
-      "options": [
-        "always"
-      ]
-    },
-    "space-before-function-paren": {
-      "options": {
-        "anonymous": "never",
-        "asyncArrow": "always",
-        "constructor": "never",
-        "method": "never",
-        "named": "never"
-      }
-    },
-    "typedef-whitespace": {
-      "options": [
-        {
-          "call-signature": "nospace",
-          "index-signature": "nospace",
-          "parameter": "nospace",
-          "property-declaration": "nospace",
-          "variable-declaration": "nospace"
-        },
-        {
-          "call-signature": "onespace",
-          "index-signature": "onespace",
-          "parameter": "onespace",
-          "property-declaration": "onespace",
-          "variable-declaration": "onespace"
-        }
-      ]
-    },
-    "variable-name": {
-      "options": [
-        "ban-keywords",
-        "check-format",
-        "allow-pascal-case"
-      ]
-    },
-    "whitespace": {
-      "options": [
-        "check-branch",
-        "check-decl",
-        "check-operator",
-        "check-separator",
-        "check-type",
-        "check-typecast"
-      ]
-    },
-    "no-conflicting-lifecycle": true,
-    "no-host-metadata-property": true,
-    "no-input-rename": true,
-    "no-inputs-metadata-property": true,
-    "no-output-native": true,
-    "no-output-on-prefix": true,
-    "no-output-rename": true,
-    "no-outputs-metadata-property": true,
-    "template-banana-in-box": true,
-    "template-no-negated-async": true,
-    "use-lifecycle-interface": true,
-    "use-pipe-transform-interface": true
-  },
-  "rulesDirectory": [
-    "codelyzer"
-  ]
+	"extends": ["tslint-angular", "tslint:latest", "tslint-eslint-rules", "tslint-config-prettier"],
+
+	"rules": {
+		"ordered-imports": {
+			"severity": "error"
+		},
+		"object-literal-sort-keys": false,
+		"no-unused-expression": [true, "allow-fast-null-checks"],
+		"jsdoc-format": {
+			"severity": "error"
+		},
+		"no-console": false,
+		"no-empty": [true, "allow-empty-functions"],
+		"no-inferrable-types": [true, "ignore-params", "ignore-properties"],
+		"variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
+		"no-input-rename": false,
+		"no-output-rename": false,
+		"no-submodule-imports": [
+			true,
+			"rxjs",
+			"@angular/platform-browser",
+			"@angular/core/testing",
+			"@angular/common/http",
+			"@angular/platform-browser-dynamic/testing",
+			"@angular/router/testing",
+			"@angular/localize",
+			"zone.js/dist/zone",
+			"core-js/es6/symbol",
+			"core-js/es6/object",
+			"core-js/es6/function",
+			"core-js/es6/parse-int",
+			"core-js/es6/parse-float",
+			"core-js/es6/number",
+			"core-js/es6/math",
+			"core-js/es6/string",
+			"core-js/es6/date",
+			"core-js/es6/array",
+			"core-js/es6/regexp",
+			"core-js/es6/map",
+			"core-js/es6/weak-map",
+			"core-js/es6/set",
+			"core-js/es7/reflect",
+			"zone.js/dist/zone-testing",
+			"@shared",
+			"@static",
+			"@interfaces",
+			"@services"
+		],
+		"no-implicit-dependencies": [true, ["dev", "protractor", "@shared", "@static", "@interfaces", "@services"]],
+		"no-this-assignment": [true, { "allowed-names": ["^self$"], "allow-destructuring": true }],
+		"member-ordering": [
+			false,
+			{
+				"severity": "error",
+				"order": "fields-first"
+			}
+		]
+	}
 }

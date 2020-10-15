@@ -1,0 +1,20 @@
+<!-- Start Page Title Area -->
+<section class="page-title-area uk-page-titl" *ngIf="coachData">
+	<div class="uk-container">
+		<h1>{{ coachData.name }}</h1>
+	</div>
+</section>
+<!-- End Page Title Area -->
+
+<!-- Start Project Details Area -->
+
+<app-erick-chavez *ngIf="displayTemplate('erick-chavez')"></app-erick-chavez>
+<app-ulises-chavez *ngIf="displayTemplate('ulises-chavez')"></app-ulises-chavez>
+<app-cristina-yanez *ngIf="displayTemplate('cristina-yanez')"></app-cristina-yanez>
+<app-vanessa-chavez *ngIf="displayTemplate('vanessa-chavez')"></app-vanessa-chavez>
+<app-simon-cervantes *ngIf="displayTemplate('simon-cervantes')"></app-simon-cervantes>
+<app-diana-chavez *ngIf="displayTemplate('diana-chavez')"></app-diana-chavez>
+<app-brandon-cid *ngIf="displayTemplate('brandon-cid')"></app-brandon-cid>
+<app-arturo-monroy *ngIf="displayTemplate('arturo-monroy')"></app-arturo-monroy>
+
+<!-- End Project Details Area -->

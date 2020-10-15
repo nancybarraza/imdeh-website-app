@@ -1,0 +1,57 @@
+<!-- Start Page Title Area -->
+<section class="page-title-area uk-page-titl" *ngIf="courseData">
+	<div class="uk-container">
+		<h1>{{ courseData.name }}</h1>
+	</div>
+</section>
+<!-- End Page Title Area -->
+
+<!-- Start Services Details Area -->
+<section class="services-details-area uk-services-details uk-section">
+	<div class="uk-container">
+		<article class="uk-article services-details">
+			<div class="uk-grid uk-flex">
+				<div class="inner uk-width-expand">
+					<app-discover *ngIf="displayTemplate('descubre')"></app-discover>
+					<app-embers *ngIf="displayTemplate('brasas')"></app-embers>
+					<app-high-direction *ngIf="displayTemplate('alta-direccion')"></app-high-direction>
+					<app-master *ngIf="displayTemplate('master')"></app-master>
+					<app-shadow *ngIf="displayTemplate('sombra')"></app-shadow>
+					<app-rebirth *ngIf="displayTemplate('renace')"></app-rebirth>
+					<app-results-program *ngIf="displayTemplate('plan-logros')"></app-results-program>
+					<app-torch *ngIf="displayTemplate('antorcha')"></app-torch>
+				</div>
+				<div class="uk-sidebar uk-width-1-5 uk-flex-first@l uk-first-column">
+					<div class="widget widget_download">
+						<h3 class="widget-title">Entrenamientos</h3>
+						<div class="bar"></div>
+					</div>
+					<div class="widget service_list">
+						<ul>
+							<li *ngFor="let course of coursesList">
+								<a routerLink="/entrenamiento/{{ course.path }}" routerLinkActive="active"
+									>{{ course.name }} <i class="flaticon-right"></i
+								></a>
+							</li>
+						</ul>
+					</div>
+
+					<!-- <div class="widget widget_download">
+						<h3 class="widget-title">Descargas</h3>
+						<div class="bar"></div>
+
+						<ul>
+							<li>
+								<a href="#">Nuestro Brochure Pdf <i class="flaticon-edit"></i></a>
+							</li>
+							<li>
+								<a href="#">Nuestra Certificación <i class="flaticon-edit"></i></a>
+							</li>
+						</ul>
+					</div> -->
+				</div>
+			</div>
+		</article>
+	</div>
+</section>
+<!-- End Services Details Area -->
