@@ -16,5 +16,31 @@
 <app-diana-chavez *ngIf="displayTemplate('diana-chavez')"></app-diana-chavez>
 <app-brandon-cid *ngIf="displayTemplate('brandon-cid')"></app-brandon-cid>
 <app-arturo-monroy *ngIf="displayTemplate('arturo-monroy')"></app-arturo-monroy>
+<section class="project-details-area uk-project-details uk-section">
+	<div class="uk-container">
+		<!-- End Project Details Area -->
+		<div class="project-next-and-prev">
+			<div class="uk-grid uk-grid-match uk-grid-medium uk-child-width-1-2@m uk-child-width-1-2@s">
+				<div class="item">
+					<button
+						routerLink="/entrenador/{{ prevPage.path }}"
+						class="uk-button uk-button-default"
+						[disabled]="prevPage.path === currentPath"
+					>
+						{{ prevPage.title }}
+					</button>
+				</div>
 
-<!-- End Project Details Area -->
+				<div class="item uk-text-right">
+					<button
+						routerLink="/entrenador/{{ nextPage.path }}"
+						class="uk-button uk-button-default"
+						[disabled]="nextPage.path === currentPath"
+					>
+						{{ nextPage.title }}
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
