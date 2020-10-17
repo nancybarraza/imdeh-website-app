@@ -1,37 +1,27 @@
 <div class="services-details-desc">
 	<h3>Plan de Logros</h3>
 	<p>
-		El Entrenamiento DESCUBRE es un taller de auto-descubrimiento que parte del supuesto de que cada individuo posee un enorme potencial
-		sin aprovecharlo al máximo. Este nivel de entrenamiento proporciona las herramientas básicas para que los participantes alcancen
-		mayores niveles de calidad de vida, centrándose en su poder personal. El Entrenamiento DESCUBRE es un programa específicamente
-		diseñado de 40 horas distribuidas en tres noches consecutivas y un fin de semana entero.
+		El PLAN DE LOGROS es un programa de seguimiento abierto sólo a los graduados del curso renace. Es un programa de “estiramiento” de
+		tres meses en todas las áreas de su vida (personal, familiar, profesional y social).
 	</p>
 
+	<p>
+		Está diseñado para poner en práctica los aprendizajes del entrenamiento descubre y renace, y ofrece la oportunidad de aplicar
+		durante 90 días las herramientas aprendidas en los talleres anteriores.
+	</p>
 	<app-carousel *ngIf="galleryImages" [images]="galleryImages"></app-carousel>
-
-	<h3>Con Descubre podrás:</h3>
-	<ul class="services-features-list">
-		<li><i class="flaticon-tick"></i>Obtener una mayor autoconciencia y autoestima.</li>
-		<li><i class="flaticon-tick"></i>Aprender a tomar riesgos y decisiones propias.</li>
-		<li><i class="flaticon-tick"></i>Fortalecer su capacidad para la solucionar problemas.</li>
-		<li><i class="flaticon-tick"></i>Fortalecer su voluntad y confianza para alcanzar metas personales.</li>
-		<li><i class="flaticon-tick"></i>Fortalecer sus cualidades de liderazgo.</li>
-		<li><i class="flaticon-tick"></i>Experimentar logros personales que creía imposibles.</li>
-	</ul>
 
 	<blockquote class="blockquote">
 		<p>
-			Descubre nuevas habilidades y fortalezas que te permitirán saber la diferencia entre vivir la vida jugando a ganar y vivir la
-			vida jugando a no perder.
+			Con el PLAN DE LOGROS usted será un comunicador efectivo y de gran alcance, aumentará su creatividad, tendrá las bases para
+			generar resultados en un equipo eficaz, vivirá con pasión y aprenderá a defender sus metas e ideales.
 		</p>
 		<a class="uk-button uk-button-default" href="#request-information" uk-toggle>SOLICITAR INFORMES</a>
 	</blockquote>
 
 	<p>
-		Con este entrenamiento, los participantes se dan cuenta de cómo opera su sistema de creencias en las decisiones y acciones en su
-		vida, y lo más importante, subraya quiénes son y pueden llegar a SER. En este viaje de descubrimiento personal, los participantes se
-		hacen conscientes de sí mismos debido a que éste proceso de auto-descubrimiento permite que sean capaces de empezar a generar los
-		resultados que desean tener en todas las áreas de su vida.
+		En este nivel del programa de entrenamiento se busca que los nuevos comportamientos adquiridos en los niveles anteriores se
+		conviertan en hábitos de vida, para generar los resultados que se desean obtener.
 	</p>
 
 	<div class="our-work-benefits">
@@ -85,7 +75,7 @@
 			</li>
 		</ul>
 
-		<!-- <a class="uk-button uk-button-default">REGISTRARME AHORA</a> -->
+		<a class="uk-button uk-button-default" href="#register-form-1" uk-toggle>REGISTRARME AHORA</a>
 	</div>
 </div>
 
@@ -103,6 +93,96 @@
 		<div class="uk-modal-footer uk-text-right">
 			<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
 			<button class="uk-button uk-button-primary" type="button">Enviar</button>
+		</div>
+	</div>
+</div>
+
+<div id="register-form-1" uk-modal>
+	<div class="uk-modal-dialog">
+		<button class="uk-modal-close-default" type="button" uk-close></button>
+		<div class="uk-modal-header">
+			<h2 class="uk-modal-title">Registrarme</h2>
+		</div>
+		<div class="uk-modal-body">
+			<div class="item">
+				<form id="contactForm">
+					<h4>Datos Personales</h4>
+					<div class="uk-grid uk-grid-match uk-grid-medium uk-child-width-1-2@m uk-child-width-1-1@s">
+						<div class="item uk-margin">
+							<input type="text" class="uk-input" name="name" id="name" placeholder="Nombre" />
+						</div>
+
+						<div class="item uk-margin">
+							<input type="text" class="uk-input" name="lastName" id="lastName" placeholder="Apellidos" />
+						</div>
+
+						<div class="item uk-margin uk-full-width">
+							<input type="email" class="uk-input" name="email" id="email" placeholder="Email" />
+						</div>
+
+						<div class="item uk-margin">
+							<input type="text" class="uk-input" placeholder="Celular" />
+						</div>
+
+						<div class="item uk-margin">
+							<input type="text" class="uk-input" placeholder="Teléfono" />
+						</div>
+						<div class="item uk-margin uk-full-width">
+							<select name="training" class="uk-input uk-select" id="traiining">
+								<option value="">Entrenamiento</option>
+								<option value="results-program" selected>Plan de Logros</option>
+							</select>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="uk-modal-footer uk-text-right">
+			<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+			<a href="#register-form-2" class="uk-button uk-button-primary" uk-toggle>Datos de mi IMO</a>
+		</div>
+	</div>
+</div>
+
+<div id="register-form-2" uk-modal>
+	<div class="uk-modal-dialog">
+		<button class="uk-modal-close-default" type="button" uk-close></button>
+		<div class="uk-modal-header">
+			<h2 class="uk-modal-title">Registrarme</h2>
+		</div>
+		<div class="uk-modal-body">
+			<div class="item">
+				<form id="contactForm">
+					<h4>Datos de mi IMO</h4>
+
+					<div class="uk-grid uk-grid-match uk-grid-medium uk-child-width-1-2@m uk-child-width-1-1@s">
+						<div class="item uk-margin">
+							<input type="text" class="uk-input" name="name" id="name" placeholder="Nombre" />
+						</div>
+
+						<div class="item uk-margin">
+							<input type="text" class="uk-input" name="lastName" id="lastName" placeholder="Apellidos" />
+						</div>
+
+						<div class="item uk-margin uk-full-width">
+							<input type="email" class="uk-input" name="email" id="email" placeholder="Email" />
+						</div>
+
+						<div class="item uk-margin">
+							<input type="text" class="uk-input" placeholder="Celular" />
+						</div>
+
+						<div class="item uk-margin">
+							<input type="text" class="uk-input" placeholder="Teléfono" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="uk-modal-footer uk-text-right">
+			<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+			<a href="#register-form-1" class="uk-button uk-button-secondary" uk-toggle>Mis Datos</a>
+			<button class="uk-button uk-button-primary uk-modal-close" type="button">Enviar</button>
 		</div>
 	</div>
 </div>

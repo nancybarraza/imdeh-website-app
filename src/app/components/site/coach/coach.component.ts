@@ -8,6 +8,8 @@ import { IStaticData } from '@interfaces/index';
 
 import { Subscription } from 'rxjs';
 
+import * as _ from 'lodash';
+
 @Component({
 	selector: 'app-coach',
 	templateUrl: './coach.component.html',
@@ -20,14 +22,25 @@ export class CoachComponent implements OnInit, OnDestroy {
 	 */
 	public coachData: IStaticData;
 
+	public coachesList: IStaticData[];
+
+	public prevPage: {
+		title: string;
+		path: string;
+	};
+
+	public nextPage: {
+		title: string;
+		path: string;
+	};
+
 	/**
 	 * @property {String} currentPath
 	 * Stores the current path retrieved by the url parameter using the router subscription
 	 * We will use its value to compare the path where the user is located and
 	 * get the data to display.
-	 * @private
 	 */
-	private currentPath: string;
+	public currentPath: string;
 
 	/**
 	 * @property {Subscription} routerSubscription Stores the router subscription in the component.
@@ -47,6 +60,7 @@ export class CoachComponent implements OnInit, OnDestroy {
 			this.currentPath = params.get('name');
 			if (this.currentPath) {
 				this.loadCoachData();
+				this.loadAllCoaches();
 				console.log(this.coachData, this.currentPath);
 			}
 		});
@@ -61,6 +75,48 @@ export class CoachComponent implements OnInit, OnDestroy {
 	 */
 	public displayTemplate(template: string): boolean {
 		return this.coachData && this.coachData.path === this.currentPath && this.currentPath === template;
+	}
+
+	private generatePaginator() {
+		const currentIndexPage = _.findIndex(this.coachesList, (coach) => {
+			return coach.name === this.coachData.name
+		});
+		const previousPage = this.coachesList[currentIndexPage - 1];
+		const nextPage = this.coachesList[currentIndexPage + 1];
+		if (previousPage) {
+			this.prevPage = {
+				title: previousPage.name,
+				path: previousPage.path
+			}
+		} else {
+			this.prevPage = {
+				title: this.coachData.name,
+				path: this.coachData.path
+			}
+		}
+		if (nextPage) {
+			this.nextPage = {
+				title: nextPage.name,
+				path: nextPage.path
+			}
+		} else {
+			this.nextPage = {
+				title: this.coachData.name,
+				path: this.coachData.path
+			}
+		}
+	}
+
+	private  async loadAllCoaches() {
+		try {
+			const results = (await this.staticManager.getAllCoaches()) || [];
+			if (results && results.length > 0) {
+				this.coachesList = results;
+				this.generatePaginator();
+			}
+		} catch (err) {
+			throw new Error(`Error trying to get static data from service ${JSON.stringify(err)}`);
+		}
 	}
 
 	/**
