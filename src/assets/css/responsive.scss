@@ -72,6 +72,9 @@ $font-size: 14px;
 			top: 145px;
 			bottom: 600px;
 		}
+		&.item-bg1 {
+			background-image: none !important;
+		}
 	}
 	.main-banner-content {
 		max-width: unset;
