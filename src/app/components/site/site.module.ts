@@ -2,6 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { NgModule } from '@angular/core';
 
+import { RouterModule } from '@angular/router';
+
+import { CoachesModule, CoursesModule } from '@static/index';
+
+import { SharedModule } from '@shared/index';
+
 import { SiteRoutingModule } from './site-routing.module';
 
 import { AboutComponent } from './about/about.component';
@@ -16,15 +22,11 @@ import { CoursesComponent } from './courses/courses.component';
 
 import { HomeComponent } from './home/home.component';
 
-import { CoachesModule, CoursesModule } from '@static/index';
-
-import { SharedModule } from '@shared/index';
-
 import { StaticManagerService } from '../../services/';
 
 @NgModule({
 	declarations: [HomeComponent, AboutComponent, CoursesComponent, CourseComponent, CoachesComponent, CoachComponent, ContactUsComponent],
-	imports: [BrowserModule, SiteRoutingModule, CoachesModule, CoursesModule, SharedModule],
+	imports: [BrowserModule, SiteRoutingModule, CoachesModule, CoursesModule, SharedModule, RouterModule],
 	exports: [HomeComponent, AboutComponent, CoursesComponent, CourseComponent, CoachesComponent, CoachComponent, ContactUsComponent],
 	providers: [StaticManagerService],
 })

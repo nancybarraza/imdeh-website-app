@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { RouterModule } from '@angular/router';
+
 import { DiscoverComponent } from './discover/discover.component';
 import { EmbersComponent } from './embers/embers.component';
 import { HighDirectionComponent } from './high-direction/high-direction.component';
@@ -34,6 +36,6 @@ import { SharedModule } from '@shared/index';
 		EmbersComponent,
 		TorchComponent,
 	],
-	imports: [CommonModule, FormsModule, SharedModule, ReactiveFormsModule],
+	imports: [CommonModule, FormsModule, SharedModule, RouterModule, ReactiveFormsModule],
 })
 export class CoursesModule {}

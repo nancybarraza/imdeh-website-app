@@ -1,0 +1,35 @@
+<form #requestForm id="contactForm">
+	<div class="uk-grid uk-grid-match uk-grid-medium uk-child-width-1-2@m uk-child-width-1-1@s">
+		<div class="item uk-margin">
+			<input type="text" class="uk-input" name="name" id="name" placeholder="Nombre" />
+		</div>
+
+		<div class="item uk-margin">
+			<input type="text" class="uk-input" name="lastName" id="lastName" placeholder="Apellidos" />
+		</div>
+
+		<div class="item uk-margin">
+			<input type="email" class="uk-input" name="email" id="email" placeholder="Email" />
+		</div>
+
+		<div class="item uk-margin">
+			<input type="text" class="uk-input" placeholder="Teléfono" />
+		</div>
+
+		<div class="item uk-margin uk-full-width">
+			<input
+				type="text"
+				class="uk-input"
+				name="subject"
+				id="subject"
+				placeholder="Asunto"
+				disabled
+				value="Entrenamiento {{ course }}"
+			/>
+		</div>
+	</div>
+
+	<div class="item">
+		<textarea name="message" class="uk-textarea" id="message" cols="30" rows="4" placeholder="Mensaje"></textarea>
+	</div>
+</form>

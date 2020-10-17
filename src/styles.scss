@@ -11001,3 +11001,17 @@ iframe.uk-cover {
 	}
 }
 /*# sourceMappingURL=styles.css.map */
+
+.uk-modal {
+	.uk-button {
+		height: 48px;
+		margin-right: 15px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+.uk-full-width {
+	width: 100% !important;
+}

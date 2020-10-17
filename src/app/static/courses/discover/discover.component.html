@@ -7,7 +7,7 @@
 		diseñado de 40 horas distribuidas en tres noches consecutivas y un fin de semana entero.
 	</p>
 
-	<app-carousel></app-carousel>
+	<app-carousel *ngIf="galleryImages" [images]="galleryImages"></app-carousel>
 
 	<h3>Con Descubre podrás:</h3>
 	<ul class="services-features-list">
@@ -24,7 +24,7 @@
 			Descubre nuevas habilidades y fortalezas que te permitirán saber la diferencia entre vivir la vida jugando a ganar y vivir la
 			vida jugando a no perder.
 		</p>
-		<a class="uk-button uk-button-default">SOLICITAR INFORMES</a>
+		<a class="uk-button uk-button-default" href="#request-information" uk-toggle>SOLICITAR INFORMES</a>
 	</blockquote>
 
 	<p>
@@ -85,6 +85,24 @@
 			</li>
 		</ul>
 
-		<a class="uk-button uk-button-default">REGISTRARME AHORA</a>
+		<!-- <a class="uk-button uk-button-default">REGISTRARME AHORA</a> -->
+	</div>
+</div>
+
+<div id="request-information" uk-modal>
+	<div class="uk-modal-dialog">
+		<button class="uk-modal-close-default" type="button" uk-close></button>
+		<div class="uk-modal-header">
+			<h2 class="uk-modal-title">Solicitar Informes</h2>
+		</div>
+		<div class="uk-modal-body">
+			<div class="item">
+				<app-request-modal course="Descubre"></app-request-modal>
+			</div>
+		</div>
+		<div class="uk-modal-footer uk-text-right">
+			<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+			<button class="uk-button uk-button-primary" type="button">Enviar</button>
+		</div>
 	</div>
 </div>

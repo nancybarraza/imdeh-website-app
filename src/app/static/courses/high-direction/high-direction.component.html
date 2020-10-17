@@ -1,1 +1,108 @@
-<p>high-direction works!</p>
+<div class="services-details-desc">
+	<h3>Alta Dirección</h3>
+	<p>
+		El Entrenamiento DESCUBRE es un taller de auto-descubrimiento que parte del supuesto de que cada individuo posee un enorme potencial
+		sin aprovecharlo al máximo. Este nivel de entrenamiento proporciona las herramientas básicas para que los participantes alcancen
+		mayores niveles de calidad de vida, centrándose en su poder personal. El Entrenamiento DESCUBRE es un programa específicamente
+		diseñado de 40 horas distribuidas en tres noches consecutivas y un fin de semana entero.
+	</p>
+
+	<app-carousel *ngIf="galleryImages" [images]="galleryImages"></app-carousel>
+
+	<h3>Con Descubre podrás:</h3>
+	<ul class="services-features-list">
+		<li><i class="flaticon-tick"></i>Obtener una mayor autoconciencia y autoestima.</li>
+		<li><i class="flaticon-tick"></i>Aprender a tomar riesgos y decisiones propias.</li>
+		<li><i class="flaticon-tick"></i>Fortalecer su capacidad para la solucionar problemas.</li>
+		<li><i class="flaticon-tick"></i>Fortalecer su voluntad y confianza para alcanzar metas personales.</li>
+		<li><i class="flaticon-tick"></i>Fortalecer sus cualidades de liderazgo.</li>
+		<li><i class="flaticon-tick"></i>Experimentar logros personales que creía imposibles.</li>
+	</ul>
+
+	<blockquote class="blockquote">
+		<p>
+			Descubre nuevas habilidades y fortalezas que te permitirán saber la diferencia entre vivir la vida jugando a ganar y vivir la
+			vida jugando a no perder.
+		</p>
+		<a class="uk-button uk-button-default" href="#request-information" uk-toggle>SOLICITAR INFORMES</a>
+	</blockquote>
+
+	<p>
+		Con este entrenamiento, los participantes se dan cuenta de cómo opera su sistema de creencias en las decisiones y acciones en su
+		vida, y lo más importante, subraya quiénes son y pueden llegar a SER. En este viaje de descubrimiento personal, los participantes se
+		hacen conscientes de sí mismos debido a que éste proceso de auto-descubrimiento permite que sean capaces de empezar a generar los
+		resultados que desean tener en todas las áreas de su vida.
+	</p>
+
+	<div class="our-work-benefits">
+		<ul class="accordion">
+			<li class="accordion-item">
+				<a class="accordion-title active" href="javascript:void(0)">
+					<i class="flaticon-plus"></i>
+					Cada cuando es el entrenamiento?
+				</a>
+
+				<p class="accordion-content show">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua. Quis ipsum suspendisse ultrices gravida.
+				</p>
+			</li>
+
+			<li class="accordion-item">
+				<a class="accordion-title" href="javascript:void(0)">
+					<i class="flaticon-plus"></i>
+					Qué requisitos debo cumplir para tomarlo?
+				</a>
+
+				<p class="accordion-content">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua. Quis ipsum suspendisse ultrices gravida.
+				</p>
+			</li>
+
+			<li class="accordion-item">
+				<a class="accordion-title" href="javascript:void(0)">
+					<i class="flaticon-plus"></i>
+					Lo pueden tomar menores de edad?
+				</a>
+
+				<p class="accordion-content">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua. Quis ipsum suspendisse ultrices gravida.
+				</p>
+			</li>
+
+			<li class="accordion-item">
+				<a class="accordion-title" href="javascript:void(0)">
+					<i class="flaticon-plus"></i>
+					Qué horarios maneja?
+				</a>
+
+				<p class="accordion-content">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua. Quis ipsum suspendisse ultrices gravida.
+				</p>
+			</li>
+		</ul>
+
+		<!-- <a class="uk-button uk-button-default">REGISTRARME AHORA</a> -->
+	</div>
+</div>
+
+<div id="request-information" uk-modal>
+	<div class="uk-modal-dialog">
+		<button class="uk-modal-close-default" type="button" uk-close></button>
+		<div class="uk-modal-header">
+			<h2 class="uk-modal-title">Solicitar Informes</h2>
+		</div>
+		<div class="uk-modal-body">
+			<div class="item">
+				<app-request-modal course="Alta Dirección"></app-request-modal>
+			</div>
+		</div>
+		<div class="uk-modal-footer uk-text-right">
+			<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+			<button class="uk-button uk-button-primary" type="button">Enviar</button>
+		</div>
+	</div>
+</div>

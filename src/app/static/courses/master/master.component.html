@@ -1,1 +1,108 @@
-<p>master works!</p>
+<div class="services-details-desc">
+	<h3>Máster</h3>
+	<p>
+		Considera la posibilidad de que quien eres, se puede captar en cierto nivel cuando te relacionas con “ser el espacio” desde el cual
+		todo surge momento a momento”. “Nota el flujo, el movimiento del contenido. Nota las formas, formándose y transformándose momento a
+		momento, considera por un momento que eres quien permite que lo que se está manifestando, se manifieste, así como también lo que
+		está surgiendo momento a momento”
+	</p>
+
+	<app-carousel *ngIf="galleryImages" [images]="galleryImages"></app-carousel>
+
+	<h3>Con Máster podrás:</h3>
+	<ul class="services-features-list">
+		<li><i class="flaticon-tick"></i>Comenzar a vivir bajo las prácticas de la maestría.</li>
+		<li><i class="flaticon-tick"></i>Vivir libre de las influencias de las emociones negativas y las limitaciones del pasado.</li>
+		<li><i class="flaticon-tick"></i>Experimentar las bases filosóficas e intelectuales de la transformación..</li>
+		<li><i class="flaticon-tick"></i>Ser efectivo para generar el futuro que deseas con menos esfuerzo.</li>
+	</ul>
+
+	<blockquote class="blockquote">
+		<p>Máster trata la pregunta más relevante que cualquier ser humano se ha planteado alguna vez: ¿Quién soy?</p>
+		<a class="uk-button uk-button-default" href="#request-information" uk-toggle>SOLICITAR INFORMES</a>
+	</blockquote>
+	<h3>¿Quién eres? Realmente! ¿Quién eres?</h3>
+	<p>
+		Desafía a los participantes con preguntas como: <br />
+		¿Eres tu cuerpo?<br />
+		¿Eres tus sentimientos?<br />
+		¿Eres tu mente?<br />
+		Entonces, ¿Quién eres? Realmente! ¿Quién eres?<br />
+		El taller explora la “Escucha Ya y Siempre”, nos ayuda a distinguir lo que es Contenido versus Contexto, entre lo que es el Ego y el
+		Ser, y también ofrece un entendimiento profundo de lo denominamos nuestro “Contexto de Supervivencia”, el miedo a la muerte y la
+		búsqueda de significados y propósito en la vida. El “mantenerse en la pregunta” es enfatizado como una forma de evitar la fijación y
+		conceptualización que perpetua la ilusión de que estamos separados del resto.
+	</p>
+
+	<div class="our-work-benefits">
+		<ul class="accordion">
+			<li class="accordion-item">
+				<a class="accordion-title active" href="javascript:void(0)">
+					<i class="flaticon-plus"></i>
+					Cada cuando es el entrenamiento?
+				</a>
+
+				<p class="accordion-content show">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua. Quis ipsum suspendisse ultrices gravida.
+				</p>
+			</li>
+
+			<li class="accordion-item">
+				<a class="accordion-title" href="javascript:void(0)">
+					<i class="flaticon-plus"></i>
+					Qué requisitos debo cumplir para tomarlo?
+				</a>
+
+				<p class="accordion-content">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua. Quis ipsum suspendisse ultrices gravida.
+				</p>
+			</li>
+
+			<li class="accordion-item">
+				<a class="accordion-title" href="javascript:void(0)">
+					<i class="flaticon-plus"></i>
+					Lo pueden tomar menores de edad?
+				</a>
+
+				<p class="accordion-content">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua. Quis ipsum suspendisse ultrices gravida.
+				</p>
+			</li>
+
+			<li class="accordion-item">
+				<a class="accordion-title" href="javascript:void(0)">
+					<i class="flaticon-plus"></i>
+					Qué horarios maneja?
+				</a>
+
+				<p class="accordion-content">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua. Quis ipsum suspendisse ultrices gravida.
+				</p>
+			</li>
+		</ul>
+
+		<!-- <a class="uk-button uk-button-default">REGISTRARME AHORA</a> -->
+	</div>
+</div>
+
+<div id="request-information" uk-modal>
+	<div class="uk-modal-dialog">
+		<button class="uk-modal-close-default" type="button" uk-close></button>
+		<div class="uk-modal-header">
+			<h2 class="uk-modal-title">Solicitar Informes</h2>
+		</div>
+		<div class="uk-modal-body">
+			<div class="item">
+				<app-request-modal course="Máster"></app-request-modal>
+			</div>
+		</div>
+		<div class="uk-modal-footer uk-text-right">
+			<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+			<button class="uk-button uk-button-primary" type="button">Save</button>
+		</div>
+	</div>
+</div>

@@ -1,1 +1,5 @@
-<p>carousel works!</p>
+<div class="services-image-slides owl-carousel owl-theme" *ngIf="images && images.length">
+	<div class="item" *ngFor="let image of images">
+		<img src="{{ image }}" />
+	</div>
+</div>

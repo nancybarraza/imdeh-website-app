@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./results-program.component.scss'],
 })
 export class ResultsProgramComponent implements OnInit {
+	/**
+	 * @property {String[]} galleryImages Stores the gallery images to display in the carousel in front-end.
+	 * Adding the property readonly to prevent UI modifications or possible injectors.
+	 * @readonly
+	 */
+	public readonly galleryImages: string[];
 	constructor() {
 		//
 	}

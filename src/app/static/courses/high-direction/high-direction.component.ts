@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./high-direction.component.scss'],
 })
 export class HighDirectionComponent implements OnInit {
+	/**
+	 * @property {String[]} galleryImages Stores the gallery images to display in the carousel in front-end.
+	 * Adding the property readonly to prevent UI modifications or possible injectors.
+	 * @readonly
+	 */
+	public readonly galleryImages: string[];
 	constructor() {
 		//
 	}
