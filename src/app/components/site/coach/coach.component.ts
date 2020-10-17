@@ -79,35 +79,35 @@ export class CoachComponent implements OnInit, OnDestroy {
 
 	private generatePaginator() {
 		const currentIndexPage = _.findIndex(this.coachesList, (coach) => {
-			return coach.name === this.coachData.name
+			return coach.name === this.coachData.name;
 		});
 		const previousPage = this.coachesList[currentIndexPage - 1];
 		const nextPage = this.coachesList[currentIndexPage + 1];
 		if (previousPage) {
 			this.prevPage = {
 				title: previousPage.name,
-				path: previousPage.path
-			}
+				path: previousPage.path,
+			};
 		} else {
 			this.prevPage = {
 				title: this.coachData.name,
-				path: this.coachData.path
-			}
+				path: this.coachData.path,
+			};
 		}
 		if (nextPage) {
 			this.nextPage = {
 				title: nextPage.name,
-				path: nextPage.path
-			}
+				path: nextPage.path,
+			};
 		} else {
 			this.nextPage = {
 				title: this.coachData.name,
-				path: this.coachData.path
-			}
+				path: this.coachData.path,
+			};
 		}
 	}
 
-	private  async loadAllCoaches() {
+	private async loadAllCoaches() {
 		try {
 			const results = (await this.staticManager.getAllCoaches()) || [];
 			if (results && results.length > 0) {
