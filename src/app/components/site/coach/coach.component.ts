@@ -56,14 +56,15 @@ export class CoachComponent implements OnInit, OnDestroy {
 	 * @return {void}
 	 */
 	public ngOnInit(): void {
-		this.routerSubscription = this._route.paramMap.subscribe((params: ParamMap) => {
-			this.currentPath = params.get('name');
-			if (this.currentPath) {
-				this.loadCoachData();
-				this.loadAllCoaches();
-				console.log(this.coachData, this.currentPath);
-			}
-		});
+		if (this._route && this._route.paramMap) {
+			this.routerSubscription = this._route.paramMap.subscribe((params: ParamMap) => {
+				this.currentPath = params.get('name');
+				if (this.currentPath) {
+					this.loadCoachData();
+					this.loadAllCoaches();
+				}
+			});
+		}
 	}
 
 	/**
@@ -102,7 +103,7 @@ export class CoachComponent implements OnInit, OnDestroy {
 		} else {
 			this.nextPage = {
 				title: this.coachData.name,
-				path: this.coachData.path,
+				path: this.coachData.path || '',
 			};
 		}
 	}
@@ -143,6 +144,8 @@ export class CoachComponent implements OnInit, OnDestroy {
 	 * @return {void}
 	 */
 	public ngOnDestroy() {
-		this.routerSubscription.unsubscribe();
+		if (this.routerSubscription) {
+			this.routerSubscription.unsubscribe();
+		}
 	}
 }

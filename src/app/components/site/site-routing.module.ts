@@ -8,6 +8,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CourseComponent } from './course/course.component';
 import { CoursesComponent } from './courses/courses.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
 	{
@@ -56,6 +57,14 @@ const routes: Routes = [
 	{
 		path: 'entrenamiento/:name',
 		component: CourseComponent,
+	},
+	{
+		path: 'registro',
+		component: RegisterComponent,
+	},
+	{
+		path: 'registro/:course',
+		component: RegisterComponent,
 	},
 	{
 		path: 'contacto',

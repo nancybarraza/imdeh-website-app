@@ -1536,6 +1536,9 @@ button.uk-icon:not(:disabled) {
 	border-radius: 0;
 	/* 4 */
 	font: inherit;
+	&.ng-invalid.ng-touched {
+		background-color: #f0506e36 !important;
+	}
 }
 
 /*

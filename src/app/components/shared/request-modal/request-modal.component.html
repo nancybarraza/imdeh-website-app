@@ -1,19 +1,34 @@
-<form #requestForm id="contactForm">
+<form #requestForm id="contactForm" [formGroup]="submitForm">
 	<div class="uk-grid uk-grid-match uk-grid-medium uk-child-width-1-2@m uk-child-width-1-1@s">
 		<div class="item uk-margin">
-			<input type="text" class="uk-input" name="name" id="name" placeholder="Nombre" />
+			<input type="text" class="uk-input" name="name" id="name" placeholder="Nombre" formControlName="name" />
+
+			<div *ngIf="name.invalid && (name.dirty || name.touched)" class="uk-form-danger alert alert-danger">
+				<div *ngIf="name.errors.required">El campo nombre es requerido.</div>
+			</div>
 		</div>
 
 		<div class="item uk-margin">
-			<input type="text" class="uk-input" name="lastName" id="lastName" placeholder="Apellidos" />
+			<input type="text" class="uk-input" name="lastName" id="lastName" placeholder="Apellidos" formControlName="lastName" />
+			<div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="uk-form-danger alert alert-danger">
+				<div *ngIf="lastName.errors.required">El campo apellidos es requerido.</div>
+			</div>
 		</div>
 
 		<div class="item uk-margin">
-			<input type="email" class="uk-input" name="email" id="email" placeholder="Email" />
+			<input type="email" class="uk-input" name="email" id="email" placeholder="Email" formControlName="email" />
+
+			<div *ngIf="email.invalid && (email.dirty || email.touched)" class="uk-form-danger alert alert-danger">
+				<div *ngIf="email.errors.required">El campo Email es requerido.</div>
+			</div>
 		</div>
 
 		<div class="item uk-margin">
-			<input type="text" class="uk-input" placeholder="Teléfono" />
+			<input type="text" class="uk-input" placeholder="Teléfono" formControlName="phone" formControlName="phone" />
+
+			<div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="uk-form-danger alert alert-danger">
+				<div *ngIf="phone.errors.required">El campo Teléfono es requerido.</div>
+			</div>
 		</div>
 
 		<div class="item uk-margin uk-full-width">
@@ -32,4 +47,6 @@
 	<div class="item">
 		<textarea name="message" class="uk-textarea" id="message" cols="30" rows="4" placeholder="Mensaje"></textarea>
 	</div>
+
+	<re-captcha formControlName="captcha" name="captcha" required siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU"></re-captcha>
 </form>

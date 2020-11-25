@@ -24,8 +24,19 @@ import { HomeComponent } from './home/home.component';
 
 import { StaticManagerService } from '../../services/';
 
+import { RegisterComponent } from './register/register.component';
+
 @NgModule({
-	declarations: [HomeComponent, AboutComponent, CoursesComponent, CourseComponent, CoachesComponent, CoachComponent, ContactUsComponent],
+	declarations: [
+		HomeComponent,
+		AboutComponent,
+		CoursesComponent,
+		CourseComponent,
+		CoachesComponent,
+		CoachComponent,
+		ContactUsComponent,
+		RegisterComponent,
+	],
 	imports: [BrowserModule, SiteRoutingModule, CoachesModule, CoursesModule, SharedModule, RouterModule],
 	exports: [HomeComponent, AboutComponent, CoursesComponent, CourseComponent, CoachesComponent, CoachComponent, ContactUsComponent],
 	providers: [StaticManagerService],

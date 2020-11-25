@@ -1489,6 +1489,11 @@ button.uk-icon:not(:disabled) {
 	font: inherit;
 }
 
+.uk-input.ng-invalid {
+	color: #ec2147;
+	border-color: #ec2147;
+}
+
 /*
  * Show the overflow in Edge.
  */
@@ -1721,6 +1726,7 @@ button.uk-icon:not(:disabled) {
 /*
  * Error
  */
+
 .uk-form-danger,
 .uk-form-danger:focus {
 	color: #f0506e;

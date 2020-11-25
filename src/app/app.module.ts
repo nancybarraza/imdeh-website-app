@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
+
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,7 +17,16 @@ import { SharedModule } from '@shared/index';
 
 @NgModule({
 	declarations: [AppComponent, HeaderComponent, FooterComponent],
-	imports: [BrowserModule, CoachesModule, CoursesModule, SiteModule, SharedModule, AppRoutingModule],
+	imports: [
+		BrowserModule,
+		CoachesModule,
+		CoursesModule,
+		SiteModule,
+		SharedModule,
+		AppRoutingModule,
+		RecaptchaModule,
+		RecaptchaFormsModule,
+	],
 	providers: [],
 	bootstrap: [AppComponent],
 })

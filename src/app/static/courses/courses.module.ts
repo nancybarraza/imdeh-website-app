@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
+
 import { DiscoverComponent } from './discover/discover.component';
 import { EmbersComponent } from './embers/embers.component';
 import { HighDirectionComponent } from './high-direction/high-direction.component';
@@ -36,6 +38,6 @@ import { SharedModule } from '@shared/index';
 		EmbersComponent,
 		TorchComponent,
 	],
-	imports: [CommonModule, FormsModule, SharedModule, RouterModule, ReactiveFormsModule],
+	imports: [CommonModule, FormsModule, SharedModule, RouterModule, ReactiveFormsModule, RecaptchaFormsModule, RecaptchaModule],
 })
 export class CoursesModule {}

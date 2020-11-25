@@ -23,21 +23,21 @@
 			<div class="uk-grid uk-grid-match uk-grid-medium uk-child-width-1-2@m uk-child-width-1-2@s">
 				<div class="item">
 					<button
-						routerLink="/entrenador/{{ prevPage.path }}"
+						routerLink="/entrenador/{{ prevPage?.path }}"
 						class="uk-button uk-button-default"
-						[disabled]="prevPage.path === currentPath"
+						[disabled]="prevPage?.path === currentPath"
 					>
-						{{ prevPage.title }}
+						{{ prevPage?.title }}
 					</button>
 				</div>
 
 				<div class="item uk-text-right">
 					<button
-						routerLink="/entrenador/{{ nextPage.path }}"
+						routerLink="/entrenador/{{ nextPage?.path }}"
 						class="uk-button uk-button-default"
-						[disabled]="nextPage.path === currentPath"
+						[disabled]="nextPage?.path === currentPath"
 					>
-						{{ nextPage.title }}
+						{{ nextPage?.title }}
 					</button>
 				</div>
 			</div>

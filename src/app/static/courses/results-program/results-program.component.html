@@ -75,7 +75,7 @@
 			</li>
 		</ul>
 
-		<a class="uk-button uk-button-default" href="#register-form-1" uk-toggle>REGISTRARME AHORA</a>
+		<!-- <a class="uk-button uk-button-default" href="#register-form-1" uk-toggle>REGISTRARME AHORA</a> -->
 	</div>
 </div>
 
@@ -87,102 +87,12 @@
 		</div>
 		<div class="uk-modal-body">
 			<div class="item">
-				<app-request-modal course="Plan de Logros"></app-request-modal>
+				<app-request-modal course="Plan de Logros" #requestModal></app-request-modal>
 			</div>
 		</div>
 		<div class="uk-modal-footer uk-text-right">
 			<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-			<button class="uk-button uk-button-primary" type="button">Enviar</button>
-		</div>
-	</div>
-</div>
-
-<div id="register-form-1" uk-modal>
-	<div class="uk-modal-dialog">
-		<button class="uk-modal-close-default" type="button" uk-close></button>
-		<div class="uk-modal-header">
-			<h2 class="uk-modal-title">Registrarme</h2>
-		</div>
-		<div class="uk-modal-body">
-			<div class="item">
-				<form id="contactForm">
-					<h4>Datos Personales</h4>
-					<div class="uk-grid uk-grid-match uk-grid-medium uk-child-width-1-2@m uk-child-width-1-1@s">
-						<div class="item uk-margin">
-							<input type="text" class="uk-input" name="name" id="name" placeholder="Nombre" />
-						</div>
-
-						<div class="item uk-margin">
-							<input type="text" class="uk-input" name="lastName" id="lastName" placeholder="Apellidos" />
-						</div>
-
-						<div class="item uk-margin uk-full-width">
-							<input type="email" class="uk-input" name="email" id="email" placeholder="Email" />
-						</div>
-
-						<div class="item uk-margin">
-							<input type="text" class="uk-input" placeholder="Celular" />
-						</div>
-
-						<div class="item uk-margin">
-							<input type="text" class="uk-input" placeholder="Teléfono" />
-						</div>
-						<div class="item uk-margin uk-full-width">
-							<select name="training" class="uk-input uk-select" id="traiining">
-								<option value="">Entrenamiento</option>
-								<option value="results-program" selected>Plan de Logros</option>
-							</select>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-		<div class="uk-modal-footer uk-text-right">
-			<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-			<a href="#register-form-2" class="uk-button uk-button-primary" uk-toggle>Datos de mi IMO</a>
-		</div>
-	</div>
-</div>
-
-<div id="register-form-2" uk-modal>
-	<div class="uk-modal-dialog">
-		<button class="uk-modal-close-default" type="button" uk-close></button>
-		<div class="uk-modal-header">
-			<h2 class="uk-modal-title">Registrarme</h2>
-		</div>
-		<div class="uk-modal-body">
-			<div class="item">
-				<form id="contactForm">
-					<h4>Datos de mi IMO</h4>
-
-					<div class="uk-grid uk-grid-match uk-grid-medium uk-child-width-1-2@m uk-child-width-1-1@s">
-						<div class="item uk-margin">
-							<input type="text" class="uk-input" name="name" id="name" placeholder="Nombre" />
-						</div>
-
-						<div class="item uk-margin">
-							<input type="text" class="uk-input" name="lastName" id="lastName" placeholder="Apellidos" />
-						</div>
-
-						<div class="item uk-margin uk-full-width">
-							<input type="email" class="uk-input" name="email" id="email" placeholder="Email" />
-						</div>
-
-						<div class="item uk-margin">
-							<input type="text" class="uk-input" placeholder="Celular" />
-						</div>
-
-						<div class="item uk-margin">
-							<input type="text" class="uk-input" placeholder="Teléfono" />
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-		<div class="uk-modal-footer uk-text-right">
-			<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-			<a href="#register-form-1" class="uk-button uk-button-secondary" uk-toggle>Mis Datos</a>
-			<button class="uk-button uk-button-primary uk-modal-close" type="button">Enviar</button>
+			<button class="uk-button uk-button-primary" type="button" (click)="submitForm($event)" [disabled]="formInvalid">Enviar</button>
 		</div>
 	</div>
 </div>

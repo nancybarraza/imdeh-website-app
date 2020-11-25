@@ -76,7 +76,7 @@ export class CourseComponent implements OnInit, OnDestroy {
 
 	/**
 	 * @method displayTemplate
-	 * Validates the current coach data  received by the parameter and the current path subscribed
+	 * Validates the current coach data received by the parameter and the current path subscribed
 	 * against the variable of the template to display.
 	 * @param {String} template receives the parameter of the template variable to compare and display
 	 * @return {Boolean}
