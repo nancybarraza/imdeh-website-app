@@ -5,14 +5,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 
 import { CarouselComponent } from './carousel/carousel.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { LoadingComponent } from './loading/loading.component';
-import { RequestModalComponent } from './request-modal/request-modal.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { RequestModalComponent } from './request-modal/request-modal.component';
 
 @NgModule({
-	declarations: [CarouselComponent, DialogComponent, LoadingComponent, RequestModalComponent, RegisterFormComponent],
-	exports: [CarouselComponent, DialogComponent, LoadingComponent, RequestModalComponent, RegisterFormComponent],
+	declarations: [
+		CarouselComponent,
+		ContactFormComponent,
+		DialogComponent,
+		LoadingComponent,
+		RequestModalComponent,
+		RegisterFormComponent,
+	],
+	exports: [CarouselComponent, ContactFormComponent, DialogComponent, LoadingComponent, RequestModalComponent, RegisterFormComponent],
 	imports: [CommonModule, FormsModule, ReactiveFormsModule, RecaptchaFormsModule, RecaptchaModule],
 })
 export class SharedModule {}

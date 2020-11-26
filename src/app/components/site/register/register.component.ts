@@ -41,7 +41,6 @@ export class RegisterComponent implements OnInit {
 
 	constructor(private staticManager: StaticManagerService, private _route: ActivatedRoute) {}
 
-
 	public ngOnInit(): void {
 		this.loadAllCourses();
 		this.routerSubscription = this._route.paramMap.subscribe((params: ParamMap) => {

@@ -23,13 +23,6 @@ export const COACHES_LIST: IStaticData[] = [
 		photo: 'assets/img/imdeh/ulises.png',
 	},
 	{
-		name: 'Vanessa Chávez',
-		path: 'vanessa-chavez',
-		range: 'Entrenadora',
-		socialMedia: [],
-		photo: 'assets/img/imdeh/vanessa.png',
-	},
-	{
 		name: 'Simón Cervantes',
 		path: 'simon-cervantes',
 		range: 'Entrenador',
@@ -37,12 +30,19 @@ export const COACHES_LIST: IStaticData[] = [
 		photo: 'assets/img/imdeh/simon.jpg',
 	},
 	{
-		name: 'Diana Chávez',
-		path: 'diana-chavez',
+		name: 'Vanessa Chávez',
+		path: 'vanessa-chavez',
 		range: 'Entrenadora',
 		socialMedia: [],
-		photo: 'assets/img/imdeh/diana.png',
+		photo: 'assets/img/imdeh/vanessa.png',
 	},
+	// {
+	// 	name: 'Diana Chávez',
+	// 	path: 'diana-chavez',
+	// 	range: 'Entrenadora',
+	// 	socialMedia: [],
+	// 	photo: 'assets/img/imdeh/diana.png',
+	// },
 	{
 		name: 'Brandon Cid',
 		path: 'brandon-cid',

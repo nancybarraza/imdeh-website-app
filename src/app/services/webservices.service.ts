@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { doLog, AppSettings } from './app-settings';
+import { AppSettings, doLog } from './app-settings';
 
 import * as _ from 'lodash';
 
@@ -46,7 +46,7 @@ export class WebServices {
 
 		const url = this._settings.getApiCredentials().hostUrl + api;
 
-		_.extend(headers, this.createAuthHeader());
+		// _.extend(headers, this.createAuthHeader());
 		return this._http
 			.request(method, url, {
 				body,

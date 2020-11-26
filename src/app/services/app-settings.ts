@@ -14,18 +14,6 @@ export class AppSettings {
 			name: 'local',
 			code: 'dev',
 		},
-		{
-			name: 'Acceptance',
-			code: 'acc',
-		},
-		{
-			name: 'Test',
-			code: 'tst',
-		},
-		{
-			name: 'Production',
-			code: 'release',
-		},
 	];
 
 	/**
@@ -41,12 +29,7 @@ export class AppSettings {
 	 * This property is not `Typed` as can grow and we should create an interface to update.
 	 */
 	public readonly appCustomOptions = {
-		appName: 'Rate Card Manager',
-		appTitle: 'Rate Card',
-		appSubTitle: 'Manager',
 		version: require('../../../package.json').version,
-		termsPagePath: '/static/terms',
-		templateName: 'dll',
 		env: this.getEnvironment(),
 		privacyStatementUrl: 'https://www.lesseedirect.com/usprivacy',
 	};
@@ -55,24 +38,13 @@ export class AppSettings {
 	private apiCredentials = {
 		DEV: {
 			token: null,
-			apiKey: 'ALVS0Ap8ZAcjMvezb60rGgeQmwJbue9g',
-		},
-		TST: {
-			token: null,
-			apiKey: '4P5OtStt0g0xhRMhdwg5Ze1EhXAtm4Ud',
-		},
-		ACC: {
-			token: null,
-			apiKey: 'U82HF896qhbRPpbym8k97fNz8+GXjiYYrTGt4WZP',
-		},
-		RELEASE: {
-			token: null,
-			apiKey: 'Mm=@PUdqFP>P233Ao=gDhwm6M34udW',
+			apiKey: null,
+			captchaKey: '6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU',
 		},
 	};
 
 	private hostUrl = {
-		DEV: 'http://localhost:8080/',
+		DEV: 'http://localhost:3000/',
 		TST: 'https://dcdfc73aa11d4164990a21bbc323ac4cfdb10859.cloudapp-enterprise.appcelerator.com/',
 		ACC: 'https://292e118500b1df107a4990cba5086a0b4beb23a2.cloudapp-enterprise.appcelerator.com/',
 		RELEASE: 'https://598ebaaa1f531f57d60185cf4301d04389179222.cloudapp-enterprise.appcelerator.com/',
@@ -91,9 +63,9 @@ export class AppSettings {
 			}
 		});
 		return {
-			apiKey: credentials[0].apiKey,
-			token: credentials[0].token,
+			captchaKey: credentials[0].captchaKey,
 			hostUrl,
+			apiKey: credentials[0].apiKey,
 		};
 	}
 
@@ -120,5 +92,11 @@ export class AppSettings {
 		}) || { name: 'N/A' };
 
 		return result.name;
+	}
+
+	public getCaptchaKey() {
+		const credentials = this.getApiCredentials();
+		const captchaKey = credentials.captchaKey;
+		return captchaKey;
 	}
 }

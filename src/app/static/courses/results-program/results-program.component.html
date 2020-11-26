@@ -75,7 +75,7 @@
 			</li>
 		</ul>
 
-		<!-- <a class="uk-button uk-button-default" href="#register-form-1" uk-toggle>REGISTRARME AHORA</a> -->
+		<a class="uk-button uk-button-default" href="https://forms.gle/B1rrMtjiDs7nUMhQ6" target="_blank">REGISTRARME AHORA</a>
 	</div>
 </div>
 
@@ -88,11 +88,16 @@
 		<div class="uk-modal-body">
 			<div class="item">
 				<app-request-modal course="Plan de Logros" #requestModal></app-request-modal>
+
+				<div class="uk-alert uk-alert-success message-sent">
+					Gracias por contactarnos, tu mensaje ha sido enviado con éxito. Uno de nuestros coordinadores se comunicara contigo a la
+					brevedad.
+				</div>
 			</div>
 		</div>
 		<div class="uk-modal-footer uk-text-right">
 			<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-			<button class="uk-button uk-button-primary" type="button" (click)="submitForm($event)" [disabled]="formInvalid">Enviar</button>
+			<button class="uk-button uk-button-primary" type="button" (click)="submitForm()" [disabled]="formInvalid">Enviar</button>
 		</div>
 	</div>
 </div>

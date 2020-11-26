@@ -31,22 +31,22 @@ export const COURSES_LIST: IStaticData[] = [
 		template: 'embers',
 		icon: 'icon-embers',
 	},
+	// {
+	// 	name: 'Sombra',
+	// 	path: 'sombra',
+	// 	template: 'shadow',
+	// 	icon: 'icon-shadow',
+	// },
 	{
-		name: 'Sombra',
-		path: 'sombra',
-		template: 'shadow',
-		icon: 'icon-shadow',
+		name: 'Antorcha',
+		path: 'antorcha',
+		template: 'torch',
+		icon: 'icon-torch',
 	},
 	{
 		name: 'Alta Dirección',
 		path: 'alta-direccion',
 		template: 'high-direction',
 		icon: 'flaticon-analytics-1',
-	},
-	{
-		name: 'Antorcha',
-		path: 'antorcha',
-		template: 'torch',
-		icon: 'icon-torch',
 	},
 ];

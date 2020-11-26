@@ -32,21 +32,21 @@
 		</div>
 
 		<div class="item uk-margin uk-full-width">
-			<input
-				type="text"
-				class="uk-input"
-				name="subject"
-				id="subject"
-				placeholder="Asunto"
-				disabled
-				value="Entrenamiento {{ course }}"
-			/>
+			<input type="text" class="uk-input" name="subject" id="subject" placeholder="Asunto" disabled formControlName="subject" />
 		</div>
 	</div>
 
 	<div class="item">
-		<textarea name="message" class="uk-textarea" id="message" cols="30" rows="4" placeholder="Mensaje"></textarea>
+		<textarea
+			name="message"
+			class="uk-textarea"
+			id="message"
+			cols="30"
+			rows="4"
+			placeholder="Mensaje"
+			formControlName="messageText"
+		></textarea>
 	</div>
 
-	<re-captcha formControlName="captcha" name="captcha" required siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU"></re-captcha>
+	<re-captcha formControlName="captchaToken" name="captchaToken" required siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU"></re-captcha>
 </form>

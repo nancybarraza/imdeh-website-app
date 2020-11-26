@@ -1,1 +1,77 @@
-<p>contact-form works!</p>
+<section id="contact" class="contact-area uk-contact uk-section">
+	<div class="uk-container">
+		<div class="uk-section-title section-title">
+			<span>Charlemos</span>
+			<h2>Conáctanos</h2>
+		</div>
+
+		<div class="uk-grid uk-grid-match uk-grid-medium uk-child-width-1-2@m uk-child-width-1-1@s">
+			<div class="item">
+				<div class="map-img">
+					<img src="assets/img/imdeh/map.png" alt="map" />
+
+					<div class="location uk-location1">
+						<a href="#" class="active">
+							<div class="location-info">
+								<h5>IMDEH, Guadalajara</h5>
+								<span>Av. Ignacio L. Vallarta 1286, Col Americana</span>
+							</div>
+						</a>
+					</div>
+
+					<div class="location uk-location2">
+						<a href="#">
+							<div class="location-info">
+								<h5>Canacintra, CDMX</h5>
+								<span> Calle Watteau 70 (ultimo piso) Santa María Nonoalco, Benito Juárez</span>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="item">
+				<form id="contactForm" [formGroup]="requestForm">
+					<div class="uk-grid uk-grid-match uk-grid-medium uk-child-width-1-2@m uk-child-width-1-1@s">
+						<div class="item uk-margin">
+							<input type="text" class="uk-input" name="name" id="name" placeholder="Nombre" formControlName="name" />
+						</div>
+
+						<div class="item uk-margin">
+							<input type="email" class="uk-input" name="email" id="email" placeholder="Email" formControlName="email" />
+						</div>
+
+						<div class="item uk-margin">
+							<input type="text" class="uk-input" placeholder="Teléfono" formControlName="phone" />
+						</div>
+
+						<div class="item uk-margin">
+							<input
+								type="text"
+								class="uk-input"
+								name="subject"
+								id="subject"
+								placeholder="Asunto"
+								formControlName="subject"
+							/>
+						</div>
+					</div>
+
+					<div class="item">
+						<textarea name="message" class="uk-textarea" id="message" cols="30" rows="4" placeholder="Mensaje"></textarea>
+					</div>
+
+					<re-captcha
+						class="item captcha-field"
+						formControlName="captcha"
+						name="captcha"
+						required
+						siteKey="{{ captchaKey }}"
+					></re-captcha>
+
+					<button type="submit" class="uk-button uk-button-default" [disabled]="formInvalid">Enviar Mensaje</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
