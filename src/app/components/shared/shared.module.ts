@@ -8,10 +8,11 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { LoadingComponent } from './loading/loading.component';
 import { RequestModalComponent } from './request-modal/request-modal.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 @NgModule({
-	declarations: [CarouselComponent, DialogComponent, LoadingComponent, RequestModalComponent],
-	exports: [CarouselComponent, DialogComponent, LoadingComponent, RequestModalComponent],
+	declarations: [CarouselComponent, DialogComponent, LoadingComponent, RequestModalComponent, RegisterFormComponent],
+	exports: [CarouselComponent, DialogComponent, LoadingComponent, RequestModalComponent, RegisterFormComponent],
 	imports: [CommonModule, FormsModule, ReactiveFormsModule, RecaptchaFormsModule, RecaptchaModule],
 })
 export class SharedModule {}

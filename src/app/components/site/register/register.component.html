@@ -1,1 +1,64 @@
-<p>register works!</p>
+<!-- Start Page Title Area -->
+<section class="page-title-area uk-page-titl" *ngIf="courseData">
+	<div class="uk-container">
+		<h1>Registro a {{ courseData.name }}</h1>
+	</div>
+</section>
+<!-- End Page Title Area -->
+
+<!-- Start Services Details Area -->
+<section class="services-details-area uk-services-details uk-section">
+	<div class="uk-container">
+		<article class="uk-article services-details">
+			<div class="uk-grid uk-flex">
+				<div class="inner uk-width-expand">
+					<h3>Registro a {{ courseData?.name }}</h3>
+
+					<p>
+						Querido Participante:
+
+						<br />
+						Felicitaciones por tu decisión de participar en este entrenamiento. Este formularios deberá ser completado
+						totalmente antes del entrenamiento.
+					</p>
+					<p>
+						Consideramos que luego de haber leído y completado el mismo, tendrás una mejor perspectiva de tus objetivos y
+						expectativas con respecto a tu participación. Permítenos darte la ¡BIENVENIDA! Te pedimos por favor nos ayudes a
+						completar la siguiente información:
+					</p>
+					<app-register-form></app-register-form>
+				</div>
+				<div class="uk-sidebar uk-width-1-5 uk-flex-first@l uk-first-column">
+					<div class="widget widget_download">
+						<h3 class="widget-title">Entrenamientos</h3>
+						<div class="bar"></div>
+					</div>
+					<div class="widget service_list">
+						<ul>
+							<li *ngFor="let course of coursesList">
+								<a routerLink="/entrenamiento/{{ course.path }}" routerLinkActive="active"
+									>{{ course.name }} <i class="flaticon-right"></i
+								></a>
+							</li>
+						</ul>
+					</div>
+
+					<!-- <div class="widget widget_download">
+						<h3 class="widget-title">Descargas</h3>
+						<div class="bar"></div>
+
+						<ul>
+							<li>
+								<a href="#">Nuestro Brochure Pdf <i class="flaticon-edit"></i></a>
+							</li>
+							<li>
+								<a href="#">Nuestra Certificación <i class="flaticon-edit"></i></a>
+							</li>
+						</ul>
+					</div> -->
+				</div>
+			</div>
+		</article>
+	</div>
+</section>
+<!-- End Services Details Area -->
