@@ -14,6 +14,10 @@ export class AppSettings {
 			name: 'local',
 			code: 'dev',
 		},
+		{
+			name: 'production',
+			code: 'prod'
+		}
 	];
 
 	/**
@@ -31,7 +35,6 @@ export class AppSettings {
 	public readonly appCustomOptions = {
 		version: require('../../../package.json').version,
 		env: this.getEnvironment(),
-		privacyStatementUrl: 'https://www.lesseedirect.com/usprivacy',
 	};
 
 	// TODO: Add acc and prod keys to change based on environment.
@@ -41,13 +44,16 @@ export class AppSettings {
 			apiKey: null,
 			captchaKey: '6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU',
 		},
+		PROD: {
+			token: null,
+			apiKey: null,
+			captchaKey: '6LcMqu4ZAAAAAAj-vq2XvCb9c2hbM8oLdZRXRqG1',
+		}
 	};
 
 	private hostUrl = {
 		DEV: 'http://localhost:3000/',
-		TST: 'https://dcdfc73aa11d4164990a21bbc323ac4cfdb10859.cloudapp-enterprise.appcelerator.com/',
-		ACC: 'https://292e118500b1df107a4990cba5086a0b4beb23a2.cloudapp-enterprise.appcelerator.com/',
-		RELEASE: 'https://598ebaaa1f531f57d60185cf4301d04389179222.cloudapp-enterprise.appcelerator.com/',
+		PROD: 'https://imdeh-api.herokuapp.com/'
 	};
 
 	public getApiCredentials() {

@@ -40,7 +40,7 @@ export class ContactFormComponent implements AfterViewInit {
 		return this.requestForm.get('captcha');
 	}
 
-	private captchaKey: string;
+	public captchaKey: string;
 
 	constructor(private appSettings: AppSettings) {
 		this.captchaKey = this.appSettings.getCaptchaKey();
