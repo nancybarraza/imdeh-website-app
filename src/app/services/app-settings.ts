@@ -47,7 +47,7 @@ export class AppSettings {
 		PROD: {
 			token: null,
 			apiKey: null,
-			captchaKey: '6LcMqu4ZAAAAAAj-vq2XvCb9c2hbM8oLdZRXRqG1',
+			captchaKey: '6LdOJu8ZAAAAAGbjwL_97_lduwsHdeFe6GEAlwQp',
 		},
 	};
 
