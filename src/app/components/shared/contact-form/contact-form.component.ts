@@ -46,6 +46,7 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
 
 	constructor(private appSettings: AppSettings, private _dataManager: DataManagerService) {
 		this.captchaKey = this.appSettings.getCaptchaKey();
+		console.log(this.captchaKey);
 	}
 
 

@@ -58,6 +58,7 @@ export class AppSettings {
 
 	public getApiCredentials() {
 		const env = this.getEnvironment();
+		console.log(env);
 		const credentials = _.filter(this.apiCredentials, (_credentials, _key) => {
 			if (_key === env) {
 				return _credentials;
