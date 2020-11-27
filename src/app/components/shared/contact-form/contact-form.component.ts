@@ -46,9 +46,7 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
 
 	constructor(private appSettings: AppSettings, private _dataManager: DataManagerService) {
 		this.captchaKey = this.appSettings.getCaptchaKey();
-		console.log(this.captchaKey);
 	}
-
 
 	public ngAfterViewInit(): void {
 		if (!this.requestForm) {
@@ -58,7 +56,6 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
 			this.formInvalid = status === 'INVALID';
 		});
 	}
-
 
 	public ngOnInit() {
 		this.requestForm = new FormGroup({
@@ -83,9 +80,8 @@ export class ContactFormComponent implements OnInit, AfterViewInit {
 			$('.uk-preloader').fadeOut();
 			$('.message-sent').fadeIn();
 			_.delay(() => {
-			$('.message-sent').fadeOut();
-
-			}, 5000); 
+				$('.message-sent').fadeOut();
+			}, 5000);
 			this.requestForm.reset();
 		}
 	}

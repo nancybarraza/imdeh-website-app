@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AppSettings } from '@services/app-settings';
 
 export interface FormModel {
 	captcha?: string;
@@ -18,6 +19,8 @@ export class RequestModalComponent implements OnInit {
 	public displayForm = false;
 	public submitForm;
 
+	public captchaKey: string;
+
 	get name() {
 		return this.submitForm.get('name');
 	}
@@ -34,8 +37,8 @@ export class RequestModalComponent implements OnInit {
 		return this.submitForm.get('captchaToken');
 	}
 
-	constructor() {
-		//
+	constructor(private appSettings: AppSettings) {
+		this.captchaKey = this.appSettings.getCaptchaKey();
 	}
 
 	public ngOnInit(): void {

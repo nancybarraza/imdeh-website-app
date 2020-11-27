@@ -74,7 +74,7 @@ const routes: Routes = [
 	{
 		path: 'politica-privacidad',
 		component: PolicyComponent,
-	}
+	},
 ];
 
 @NgModule({
