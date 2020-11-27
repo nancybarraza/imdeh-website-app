@@ -16,8 +16,8 @@ export class AppSettings {
 		},
 		{
 			name: 'production',
-			code: 'prod'
-		}
+			code: 'prod',
+		},
 	];
 
 	/**
@@ -48,12 +48,12 @@ export class AppSettings {
 			token: null,
 			apiKey: null,
 			captchaKey: '6LcMqu4ZAAAAAAj-vq2XvCb9c2hbM8oLdZRXRqG1',
-		}
+		},
 	};
 
 	private hostUrl = {
 		DEV: 'http://localhost:3000/',
-		PROD: 'https://imdeh-api.herokuapp.com/'
+		PROD: 'https://imdeh-api.herokuapp.com/',
 	};
 
 	public getApiCredentials() {

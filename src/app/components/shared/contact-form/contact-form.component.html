@@ -58,18 +58,33 @@
 					</div>
 
 					<div class="item">
-						<textarea name="message" class="uk-textarea" id="message" cols="30" rows="4" placeholder="Mensaje"></textarea>
+						<textarea
+							name="message"
+							class="uk-textarea"
+							id="message"
+							cols="30"
+							rows="4"
+							placeholder="Mensaje"
+							formControlName="messageText"
+						></textarea>
 					</div>
 
 					<re-captcha
 						class="item captcha-field"
-						formControlName="captcha"
+						formControlName="captchaToken"
 						name="captcha"
 						required
 						siteKey="{{ captchaKey }}"
 					></re-captcha>
 
-					<button type="submit" class="uk-button uk-button-default" [disabled]="formInvalid">Enviar Mensaje</button>
+					<div class="uk-alert uk-alert-success message-sent">
+						Gracias por contactarnos, tu mensaje ha sido enviado con éxito. Uno de nuestros coordinadores se comunicara contigo
+						a la brevedad.
+					</div>
+
+					<button type="submit" class="uk-button uk-button-default" [disabled]="!requestForm.valid" (click)="submitForm()">
+						Enviar Mensaje
+					</button>
 				</form>
 			</div>
 		</div>

@@ -29,7 +29,14 @@ export class ResultsProgramComponent implements AfterViewInit, OnInit {
 	 * Adding the property readonly to prevent UI modifications or possible injectors.
 	 * @readonly
 	 */
-	public readonly galleryImages: string[];
+	public readonly galleryImages: string[] = [
+		'assets/img/imdeh/pl1.jpeg',
+		'assets/img/imdeh/pl2.jpeg',
+		'assets/img/imdeh/pl4.jpeg',
+		'assets/img/imdeh/pl6.jpeg',
+		'assets/img/imdeh/pl7.jpeg',
+		'assets/img/imdeh/pl9.jpeg',
+	];
 	constructor(private _dataManager: DataManagerService) {}
 
 	/**

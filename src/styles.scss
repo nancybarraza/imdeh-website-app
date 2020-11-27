@@ -11018,3 +11018,11 @@ iframe.uk-cover {
 .uk-full-width {
 	width: 100% !important;
 }
+
+.captcha-field {
+	position: relative;
+	top: 10px;
+	&.right {
+		float: right;
+	}
+}

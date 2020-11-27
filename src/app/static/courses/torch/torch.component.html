@@ -6,6 +6,7 @@
 		conocimientos, habilidades, etc. Esto debido a que se encuentran en un proceso de transición y duelo, en el que generan algunas de
 		las características más importantes de su personalidad, pues dejan de ser niños, para comenzar su descubrimiento de la vida adulta.
 	</p>
+	<app-carousel *ngIf="galleryImages" [images]="galleryImages"></app-carousel>
 
 	<p>
 		Teniendo en cuenta lo anterior, el objetivo del campamento es que los adolescentes pongan en práctica valores como el respeto,
@@ -20,8 +21,6 @@
 		que se pretende que a lo largo del fin de semana sean conscientes de que toda acción genera una consecuencia y que esta, conlleva un
 		resultado cuyo impacto (positivo o negativo) no se da solo de forma individual, si no a nivel social.
 	</p>
-
-	<!-- <app-carousel *ngIf="galleryImages" [images]="galleryImages"></app-carousel> -->
 
 	<h4>En consecuencia, algunos de los BENEFICIOS SON:</h4>
 	<ul class="services-features-list">
@@ -98,7 +97,7 @@
 			</li>
 		</ul>
 
-		<!-- <a class="uk-button uk-button-default">REGISTRARME AHORA</a> -->
+		<a class="uk-button uk-button-default" href="https://forms.gle/B1rrMtjiDs7nUMhQ6" target="_blank">REGISTRARME AHORA</a>
 	</div>
 </div>
 
@@ -110,12 +109,17 @@
 		</div>
 		<div class="uk-modal-body">
 			<div class="item">
-				<app-request-modal course="Alta Dirección"></app-request-modal>
+				<app-request-modal course="Antorcha" #requestModal></app-request-modal>
+
+				<div class="uk-alert uk-alert-success message-sent">
+					Gracias por contactarnos, tu mensaje ha sido enviado con éxito. Uno de nuestros coordinadores se comunicara contigo a la
+					brevedad.
+				</div>
 			</div>
 		</div>
 		<div class="uk-modal-footer uk-text-right">
 			<button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-			<button class="uk-button uk-button-primary" type="button">Enviar</button>
+			<button class="uk-button uk-button-primary" type="button" (click)="submitForm()" [disabled]="formInvalid">Enviar</button>
 		</div>
 	</div>
 </div>
