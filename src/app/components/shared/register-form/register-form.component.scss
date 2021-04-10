@@ -1,0 +1,30 @@
+.radio-list-item {
+	display: block;
+	margin-bottom: 1em;
+	.payment-description {
+		height: 0px;
+		overflow: hidden;
+		transition: height 0.5s;
+	}
+	.payment-description.active {
+		height: 30px;
+		&.paypal {
+			height: 55px;
+		}
+	}
+}
+.terms-and-conditions {
+	margin: 1em 0;
+}
+
+.clearfix {
+	clear: both;
+}
+.buttons-container {
+	margin: 2em 0;
+	text-align: right;
+}
+.uk-radio:not(:disabled),
+.uk-checkbox:not(:disabled) {
+	border: 1px solid #1e87f0;
+}

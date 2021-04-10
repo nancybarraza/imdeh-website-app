@@ -1,259 +1,183 @@
-<!-- <form #requestForm id="contactForm">
-	<div class="uk-grid uk-grid-match uk-grid-medium uk-child-width-1-2@m uk-child-width-1-1@s">
-		<div class="item uk-margin uk-full-width">
-			<h4>Programa</h4>
-		</div>
-		<div class="item uk-margin uk-full-width">
-			<label>Programa</label><br />
+<form #registerForm id="contactForm" [formGroup]="submitForm">
+	<div>
+		<h3>Datos personales</h3>
+		<p class="payment-info">Para registrarte en Descubre, es importante llenes la siguiente información y elijas tu forma de pago.</p>
 
-			<input type="text" class="uk-input" name="subject" id="subject" placeholder="Asunto" disabled value="Entrenamiento" />
-		</div>
-		<div class="item uk-margin">
-			<label>Número del Programa</label><br />
+		<div class="uk-grid uk-grid-match uk-grid-medium uk-child-width-1-2@m uk-child-width-1-1@s">
+			<div class="item uk-margin">
+				<input type="text" class="uk-input" name="name" id="name" placeholder="Nombre" formControlName="name" />
 
-			<input type="number" class="uk-input" name="courseNumber" id="courseNumber" placeholder="Número del Programa" min="15" />
-		</div>
-		<div class="item uk-margin">
-			<label>Fecha del Programa</label><br />
+				<div *ngIf="name.invalid && (name.dirty || name.touched)" class="uk-form-danger alert alert-danger">
+					<div *ngIf="name.errors.required">El campo nombre es requerido.</div>
+				</div>
+			</div>
 
-			<input type="date" class="uk-input" name="courseDate" id="courseDate" placeholder="Fecha del Programa" />
-		</div>
-		<div class="item uk-margin">
-			<label>¿Quién te recomendó?</label><br />
+			<div class="item uk-margin">
+				<input type="text" class="uk-input" name="lastName" id="lastName" placeholder="Apellidos" formControlName="lastName" />
+				<div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="uk-form-danger alert alert-danger">
+					<div *ngIf="lastName.errors.required">El campo apellidos es requerido.</div>
+				</div>
+			</div>
 
-			<input type="text" class="uk-input" placeholder="IMO" formControlName="imo" formControlName="imo" /> -->
+			<div class="item uk-margin">
+				<input type="email" class="uk-input" name="email" id="email" placeholder="Email" formControlName="email" />
 
-<!-- <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="phone.errors.required">El campo Teléfono es requerido.</div>
-			</div> -->
-<!-- </div>
-		<div class="item uk-margin">
-			<label>Costo del Programa</label><br />
+				<div *ngIf="email.invalid && (email.dirty || email.touched)" class="uk-form-danger alert alert-danger">
+					<div *ngIf="email.errors.required">El campo Email es requerido.</div>
+				</div>
+			</div>
 
-			<input type="text" class="uk-input" placeholder="Costo" formControlName="imo" formControlName="imo" /> -->
+			<div class="item uk-margin">
+				<input type="text" class="uk-input" placeholder="Teléfono" formControlName="phone" formControlName="phone" />
 
-<!-- <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="phone.errors.required">El campo Teléfono es requerido.</div>
-			</div> -->
-<!-- </div>
-		<div class="item uk-margin uk-full-width">
-			<h4>Datos personales</h4>
-		</div>
-
-		<div class="item uk-margin">
-			<label>Nombre</label><br />
-
-			<input type="text" class="uk-input" name="name" id="name" placeholder="Nombre" formControlName="name" /> -->
-
-<!-- <div *ngIf="name.invalid && (name.dirty || name.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="name.errors.required">El campo nombre es requerido.</div>
-			</div> -->
-<!-- </div>
-
-		<div class="item uk-margin">
-			<label>Apellidos</label><br />
-
-			<input type="text" class="uk-input" name="lastName" id="lastName" placeholder="Apellidos" formControlName="lastName" />
-			<div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="uk-form-danger alert alert-danger"> 
-				<div *ngIf="lastName.errors.required">El campo apellidos es requerido.</div>
-			</div> 
-		</div>
-
-		<div class="item uk-margin uk-full-width">
-			<label>Cómo prefiero que me llamen</label><br />
-
-			<input
-				type="text"
-				class="uk-input"
-				name="nickName"
-				id="nickName"
-				placeholder="Cómo prefiero que me llamen"
-				formControlName="lastName"
-			/>
-			 <div *ngIf="nickName.invalid && (nickName.dirty || nickName.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="lastName.errors.required">El campo apellidos es requerido.</div>
-			</div> 
-		</div>
-
-		<div class="item uk-margin">
-			<label>Fecha de Nacimiento</label><br />
-
-			<input type="date" class="uk-input" name="birthDate" id="birthDate" placeholder="Fecha de Nacimiento" />
-		</div>
-
-		<div class="item uk-margin">
-			<label>Edad</label><br />
-
-			<input type="text" class="uk-input" name="age" id="age" placeholder="Edad" />
-		</div>
-
-		<div class="item uk-margin">
-			<label>Género</label><br />
-			<select name="gender" id="gender" class="uk-select uk-input">
-				<option value="" disabled selected>Género</option>
-				<option value="f">Femenino</option>
-				<option value="m">Masculino</option>
-			</select>
-		</div>
-
-		<div class="item uk-margin">
-			<label>Estado Civil</label><br />
-			<select name="civilStatus" id="civilStatus" class="uk-select uk-input">
-				<option value="" disabled selected>Estado Civil</option>
-				<option value="single">Soltero</option>
-				<option value="married">Casado</option>
-				<option value="divorced">Separado / Divorciado</option>
-				<option value="widow">Viudo (a)</option>
-			</select>
-		</div>
-
-		<div class="item uk-margin uk-full-width">
-			<label>Hijos (en caso afirmativo, agregar sus edades)</label><br />
-
-			<input type="text" class="uk-input" name="age" id="age" placeholder="Hijos" />
-		</div>
-
-		<div class="item uk-margin uk-full-width">
-			<h4>Datos de Contacto</h4>
-		</div>
-
-		<div class="item uk-margin">
-			<label>Dirección</label><br />
-
-			<input type="text" class="uk-input" name="address1" id="address1" placeholder="Dirección" formControlName="Address" />
-
-			 <div *ngIf="email.invalid && (email.dirty || email.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="email.errors.required">El campo Email es requerido.</div>
-			</div> 
-		</div>
-
-		<div class="item uk-margin">
-			<label>Estado</label><br />
-
-			<input type="text" class="uk-input" name="address1" id="address1" placeholder="Estado" formControlName="state" />
-
-			<div *ngIf="email.invalid && (email.dirty || email.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="email.errors.required">El campo Email es requerido.</div>
-			</div> 
-		</div>
-
-		<div class="item uk-margin">
-			<label>Teléfono de Casa</label><br />
-
-			<input type="text" class="uk-input" placeholder="Teléfono" formControlName="phone" formControlName="phone" />
-
-			<div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="phone.errors.required">El campo Teléfono es requerido.</div>
+				<div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="uk-form-danger alert alert-danger">
+					<div *ngIf="phone.errors.required">El campo Teléfono es requerido.</div>
+				</div>
 			</div>
 		</div>
 
-		<div class="item uk-margin">
-			<label>Teléfono Celular</label><br />
+		<h3>Datos de mi IMO</h3>
+		<div class="uk-grid uk-grid-match uk-grid-medium uk-child-width-1-2@m uk-child-width-1-1@s">
+			<div class="item uk-margin">
+				<input type="text" class="uk-input" name="imoName" id="imoName" placeholder="Nombre" formControlName="imoName" />
 
-			<input type="text" class="uk-input" placeholder="Celular" formControlName="phone" formControlName="phone" />
+				<div *ngIf="imoName.invalid && (imoName.dirty || imoName.touched)" class="uk-form-danger alert alert-danger">
+					<div *ngIf="imoName.errors.required">El campo nombre es requerido.</div>
+				</div>
+			</div>
 
-			<div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="phone.errors.required">El campo Teléfono es requerido.</div>
-			</div> 
-		</div>
+			<div class="item uk-margin">
+				<input
+					type="text"
+					class="uk-input"
+					name="imoLastName"
+					id="imoLastName"
+					placeholder="Apellidos"
+					formControlName="imoLastName"
+				/>
+				<div *ngIf="imoLastName.invalid && (imoLastName.dirty || imoLastName.touched)" class="uk-form-danger alert alert-danger">
+					<div *ngIf="imoLastName.errors.required">El campo apellidos es requerido.</div>
+				</div>
+			</div>
 
-		<div class="item uk-margin uk-full-width">
-			<label>Email</label><br />
+			<div class="item uk-margin">
+				<input type="email" class="uk-input" name="imoEmail" id="imoEmail" placeholder="Email" formControlName="imoEmail" />
 
-			<input type="email" class="uk-input" name="email" id="email" placeholder="Email" formControlName="email" />
+				<div *ngIf="imoEmail.invalid && (imoEmail.dirty || imoEmail.touched)" class="uk-form-danger alert alert-danger">
+					<div *ngIf="imoEmail.errors.required">El campo Email es requerido.</div>
+				</div>
+			</div>
 
-			<div *ngIf="email.invalid && (email.dirty || email.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="email.errors.required">El campo Email es requerido.</div>
-			</div> 
-		</div>
+			<div class="item uk-margin">
+				<input type="text" class="uk-input" placeholder="Teléfono" formControlName="imoPhone" formControlName="imoPhone" />
 
-		<div class="item uk-margin uk-full-width">
-			<h5>Nombre y número telefónico de 2 contactos (mínimo) en caso de alguna necesidad.</h5>
-		</div>
-
-		<div class="item uk-margin">
-			<label>Perfona de Contacto 1</label><br />
-
-			<input type="text" class="uk-input" placeholder="Nombre y Teléfono" formControlName="phone" formControlName="phone" />
-
-			<div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="phone.errors.required">El campo Teléfono es requerido.</div>
-			</div> 
-		</div>
-
-		<div class="item uk-margin">
-			<label>Perfona de Contacto 2</label><br />
-
-			<input type="text" class="uk-input" placeholder="Nombre y Teléfono" formControlName="phone" formControlName="phone" />
-
-			 <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="phone.errors.required">El campo Teléfono es requerido.</div>
-			</div> 
-		</div>
-
-		<div class="item uk-margin uk-full-width">
-			<h4>Profesión</h4>
-		</div>
-
-		<div class="item uk-margin">
-			<label>¿A qué te dedicas?</label><br />
-
-			<input type="text" class="uk-input" placeholder="Profesión" formControlName="phone" formControlName="phone" />
-
-			<div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="phone.errors.required">El campo Teléfono es requerido.</div>
-			</div> 
-		</div>
-
-		<div class="item uk-margin">
-			<label>Empresa</label><br />
-
-			<input type="text" class="uk-input" placeholder="Celular" formControlName="phone" formControlName="phone" />
-
-			 <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="phone.errors.required">El campo Teléfono es requerido.</div>
+				<div *ngIf="imoPhone.invalid && (imoPhone.dirty || imoPhone.touched)" class="uk-form-danger alert alert-danger">
+					<div *ngIf="imoPhone.errors.required">El campo Teléfono es requerido.</div>
+				</div>
 			</div>
 		</div>
-
-		<div class="item uk-margin uk-full-width">
-			<h4>Objetivos</h4>
-			<h5>
-				Indica de forma específica tres compromisos genuinos que deseas lograr para tu vida a través de tu participación en el
-				programa.
-			</h5>
-		</div>
-
-		<div class="item uk-margin uk-full-width">
-			<label>Objetivo 1</label><br /><br />
-
-			<input type="text" class="uk-input" name="goal1" id="goal1" placeholder="Objetivo" formControlName="goal1" />
-
-		<div *ngIf="email.invalid && (email.dirty || email.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="email.errors.required">El campo Email es requerido.</div>
-			</div> 
-		</div>
-
-		<div class="item uk-margin uk-full-width">
-			<label>Objetivo 2</label><br /><br />
-
-			<input type="text" class="uk-input" name="goal1" id="goal1" placeholder="Objetivo" formControlName="goal1" />
-
-			 <div *ngIf="email.invalid && (email.dirty || email.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="email.errors.required">El campo Email es requerido.</div>
-			</div> 
-		</div>
-
-		<div class="item uk-margin uk-full-width">
-			<label>Objetivo 3</label><br /><br />
-
-			<input type="text" class="uk-input" name="goal1" id="goal1" placeholder="Objetivo" formControlName="goal1" />
-
-			<div *ngIf="email.invalid && (email.dirty || email.touched)" class="uk-form-danger alert alert-danger">
-				<div *ngIf="email.errors.required">El campo Email es requerido.</div>
-			</div> 
+	</div>
+	<div>
+		<h3>Forma de Pago</h3>
+		<p>
+			El entrenamiento tiene un costo de ${{ course?.price }}.00 MXN
+			<br />
+			Si cuentas con algún descuento especial, es importante que realices tu pago en oficinas.
+		</p>
+		<div class="clearfix"></div>
+		<div class="full-width radio-list">
+			<div class="radio-list-item">
+				<label for="office" (click)="selectPaymentType($event, office)"
+					><input
+						(click)="selectPaymentType($event, office)"
+						type="radio"
+						class="uk-radio"
+						name="paymentType"
+						formControlName="paymentType"
+						value="office"
+						id="office"
+						checked="true"
+						#office
+					/>
+					En Oficina</label
+				>
+				<div class="payment-description" [ngClass]="{ active: paymentType.value === 'office' }">
+					<p>{{ paymentDescription }}</p>
+				</div>
+			</div>
+			<div class="radio-list-item">
+				<label for="transfer" (click)="selectPaymentType($event, transfer)"
+					><input
+						(click)="selectPaymentType($event, transfer)"
+						type="radio"
+						class="uk-radio"
+						name="paymentType"
+						formControlName="paymentType"
+						value="transfer"
+						id="transfer"
+						#transfer
+					/>
+					Transferencia / Depósito Bancario</label
+				>
+				<div class="payment-description" [ngClass]="{ active: paymentType.value === 'transfer' }">
+					<p>{{ paymentDescription }}</p>
+				</div>
+			</div>
+			<div class="radio-list-item">
+				<label for="paypal" (click)="selectPaymentType($event, paypal)"
+					><input
+						(click)="selectPaymentType($event, paypal)"
+						type="radio"
+						class="uk-radio"
+						name="paymentType"
+						formControlName="paymentType"
+						value="paypal"
+						id="paypal"
+						#paypal
+					/>
+					Pagar en línea con tarjeta de Crédito, Débito, Mercado Pago ó Paypal</label
+				>
+				<div class="payment-description paypal" [ngClass]="{ active: paymentType.value === 'paypal' }">
+					<p>{{ paymentDescription }}</p>
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<re-captcha formControlName="captcha" name="captcha" required siteKey="6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU"></re-captcha>
+	<div class="terms-and-conditions">
+		<label for="terms"
+			><input type="checkbox" class="uk-checkbox" formControlName="isTermsAccepted" name="terms" id="terms" #terms /> Acepto los
+			términos y condiciones de uso y privacidad.</label
+		>
+	</div>
+
+	<div>
+		<p class="info">
+			Una vez que envíes este formulario, te llegará un correo de confirmación con un enlace para completar la información de tu
+			registro.
+		</p>
+	</div>
+
+	<!-- <re-captcha
+		formControlName="captchaToken"
+		name="captchaToken"
+		required
+		class="captcha-field right"
+		siteKey="{{ captchaKey }}"
+	></re-captcha> -->
+
+	<div class="clearfix"></div>
+	<div class="buttons-container">
+		<ngx-paypal [config]="paypalConfig" *ngIf="isPaypalSelected && submitForm.valid"></ngx-paypal>
+
+		<button
+			type="submit"
+			class="uk-button uk-button-default"
+			[disabled]="!submitForm.valid"
+			(click)="submitRequest()"
+			*ngIf="!isPaypalSelected"
+		>
+			Registrarme ahora
+		</button>
+	</div>
 </form>
--->

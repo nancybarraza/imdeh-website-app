@@ -10,6 +10,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { LoadingComponent } from './loading/loading.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { RequestModalComponent } from './request-modal/request-modal.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 @NgModule({
 	declarations: [
@@ -21,6 +22,6 @@ import { RequestModalComponent } from './request-modal/request-modal.component';
 		RegisterFormComponent,
 	],
 	exports: [CarouselComponent, ContactFormComponent, DialogComponent, LoadingComponent, RequestModalComponent, RegisterFormComponent],
-	imports: [CommonModule, FormsModule, ReactiveFormsModule, RecaptchaFormsModule, RecaptchaModule],
+	imports: [CommonModule, FormsModule, ReactiveFormsModule, RecaptchaFormsModule, RecaptchaModule, NgxPayPalModule],
 })
 export class SharedModule {}

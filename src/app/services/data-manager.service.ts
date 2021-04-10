@@ -33,4 +33,18 @@ export class DataManagerService {
 			console.log(error);
 		}
 	}
+
+	public async sendRegisterEmail(_emailRequest: any) {
+		const api = 'send-register-email';
+		const body = _emailRequest;
+		try {
+			return this._webservices.request({
+				api,
+				method: 'POST',
+				body,
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	}
 }

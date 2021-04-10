@@ -12,21 +12,51 @@
 		<article class="uk-article services-details">
 			<div class="uk-grid uk-flex">
 				<div class="inner uk-width-expand">
-					<h3>Registro a {{ courseData?.name }}</h3>
-
-					<p>
-						Querido Participante:
-
-						<br />
-						Felicitaciones por tu decisión de participar en este entrenamiento. Este formularios deberá ser completado
-						totalmente antes del entrenamiento.
-					</p>
-					<p>
-						Consideramos que luego de haber leído y completado el mismo, tendrás una mejor perspectiva de tus objetivos y
-						expectativas con respecto a tu participación. Permítenos darte la ¡BIENVENIDA! Te pedimos por favor nos ayudes a
-						completar la siguiente información:
-					</p>
-					<app-register-form></app-register-form>
+					<div class="register-form" *ngIf="!isFormSubmitted">
+						<h3>Registro a {{ courseData?.name }}</h3>
+						<p style="text-align: justify">
+							Querido Participante:
+							<br />
+							Felicitaciones por tu decisión de participar en este entrenamiento. Para registrarte es importante llenar el
+							siguiente formulario, y realizar tu pago. <br />
+							Posteriormente, te haremos llegar un correo con la confirmación de tu preregistro y los siguientes pasos para
+							completar tu registro.
+							<br />
+							Estamos convencidos de que estás tomando la mejor elección de tu vida. Cualquier duda que puedas tener al
+							respecto de tu entrenamiento, no dudes en contactarnos.
+						</p>
+						<app-register-form [course]="courseData" (formSubmitted)="onFormSubmitted($event)"></app-register-form>
+					</div>
+					<div class="register-confirmation" *ngIf="isFormSubmitted" id="formSubmitted">
+						<h3>Felicidades, se completó tu solicitud de registro a {{ courseData?.name }}.</h3>
+						<p>
+							Querido Participante:
+							<br />
+							Felicitaciones por tu decisión de participar en este entrenamiento.
+							<br />
+							Hemos procesado tu solicitud y pago, recibirás un correo con los siguientes pasos para completar tu proceso de
+							registro.
+							<br />
+							Si tienes alguna duda, por favor no dudes en comunicarte con nosotros.
+							<br />
+						</p>
+						<h4>Los datos de tu solicitud son:</h4>
+						<p>Registro a {{ courseData?.name }}</p>
+						<h5>Datos personales:</h5>
+						<p>
+							Nombre: {{ formData?.name }} {{ formData?.lastName }} <br />
+							Email: {{ formData?.email }} <br />
+							Teléfono: {{ formData?.phone }}
+						</p>
+						<h5>Datos de tu IMO:</h5>
+						<p>
+							Nombre: {{ formData?.imoName }} {{ formData?.imoLastName }} <br />
+							Email: {{ formData?.imoEmail }} <br />
+							Teléfono: {{ formData?.imoPhone }}
+						</p>
+						<h5>Forma de Pago seleccionada:</h5>
+						<p>Tu forma de pago seleccionada es {{ displayPaymentDetails() }}</p>
+					</div>
 				</div>
 				<div class="uk-sidebar uk-width-1-5 uk-flex-first@l uk-first-column">
 					<div class="widget widget_download">
@@ -42,20 +72,6 @@
 							</li>
 						</ul>
 					</div>
-
-					<!-- <div class="widget widget_download">
-						<h3 class="widget-title">Descargas</h3>
-						<div class="bar"></div>
-
-						<ul>
-							<li>
-								<a href="#">Nuestro Brochure Pdf <i class="flaticon-edit"></i></a>
-							</li>
-							<li>
-								<a href="#">Nuestra Certificación <i class="flaticon-edit"></i></a>
-							</li>
-						</ul>
-					</div> -->
 				</div>
 			</div>
 		</article>

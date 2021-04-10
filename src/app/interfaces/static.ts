@@ -6,4 +6,5 @@ export interface IStaticData {
 	photo?: string;
 	template?: string;
 	icon?: string;
+	price?: number;
 }
