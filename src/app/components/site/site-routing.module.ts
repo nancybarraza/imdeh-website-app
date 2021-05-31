@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-
 import { RouterModule, Routes } from '@angular/router';
-
 import { CoachComponent } from './coach/coach.component';
 import { CoachesComponent } from './coaches/coaches.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';

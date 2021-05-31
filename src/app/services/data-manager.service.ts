@@ -37,6 +37,7 @@ export class DataManagerService {
 	public async sendRegisterEmail(_emailRequest: any) {
 		const api = 'send-register-email';
 		const body = _emailRequest;
+		
 		try {
 			return this._webservices.request({
 				api,

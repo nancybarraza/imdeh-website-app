@@ -1,10 +1,14 @@
-import { Component, EventEmitter, Input, OnInit, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { AppSettings, doLog } from '@services/app-settings';
+
 import { DataManagerService } from '@services/data-manager.service';
+
 import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
+
+import * as _ from 'lodash';
 
 export interface FormModel {
 	captcha?: string;
@@ -23,7 +27,7 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 
 	@Output('formSubmitted') public formSubmitted: EventEmitter<{
 		formData: FormGroup;
-		isFormSubmitted: Boolean;
+		isFormSubmitted: boolean;
 	}> = new EventEmitter();
 
 	public isPaypalSelected: boolean = false;
@@ -79,7 +83,10 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 
 	private paymentDescriptionList = {
 		office: 'Para pagar en oficinas, visítanos de 12:00pm a 10:00pm de Lunes a Domingo.',
-		transfer: 'BBVA Bancomer',
+		transfer: `Realiza tu depósito o transferencia bancaria a:<br>
+		 <b>Frecuencia 4, S.C. - BBVA Bancomer</b><br>
+		 Cuenta: 011457613<br>
+		 Cuenta Clabe: 012180001141576135`,
 		paypal:
 			'Al seleccionar paypal, podrás pagar con tu tarjeta de crédito y aceptas que se agregarán cargos de comisiones por pago en línea de un 5%.',
 	};
@@ -135,9 +142,10 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 	private setPaypalConfig() {
 		this.paypalConfig = {
 			currency: 'MXN',
-			clientId: 'ATho_hxW_iQDulexHgI9u32_DoQAfg2gYRiQxJBqCe7eb14CiOMin5Z6XcX-UaLHUphEaUiUG_PnOd2B',
+			clientId: this.appSettings.getPaypalClientId(),
 			/* disable-ts-lint */
 			createOrderOnClient: (data) =>
+				/* tslint:disable-next-line */
 				<ICreateOrderRequest>{
 					intent: 'CAPTURE',
 					purchase_units: [
@@ -179,6 +187,7 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 				doLog && console.log(LOG_TAG, 'onApprove - transaction was approved, but not authorized', JSON.stringify(data), actions);
 				actions.order.get().then((details) => {
 					doLog && console.log(LOG_TAG, 'onApprove - you can get full order details inside onApprove: ', JSON.stringify(details));
+					/* tslint:disable:no-string-literal */
 					const paymentDetails = {
 						create_time: details.create_time,
 						id: details.id,
@@ -187,7 +196,9 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 						payer: details.payer,
 						purchase_units: details.purchase_units,
 					};
-					this.submitForm.controls['paymentStatus'].setValue(paymentDetails);
+					/* tslint:enable */
+					const paymentStatus = 'paymentStatus';
+					this.submitForm.controls[paymentStatus].setValue(paymentDetails);
 				});
 			},
 			onClientAuthorization: (data) => {
@@ -197,6 +208,7 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 						'onClientAuthorization - you should probably inform your server about completed transaction at this point',
 						JSON.stringify(data)
 					);
+				/* tslint:disable:no-string-literal */
 				const paymentDetails = {
 					create_time: data.create_time,
 					id: data.id,
@@ -205,7 +217,9 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 					payer: data.payer,
 					purchase_units: data.purchase_units,
 				};
-				this.submitForm.controls['paymentStatus'].setValue(paymentDetails);
+				/* tslint:enable */
+				const paymentStatus = 'paymentStatus';
+				this.submitForm.controls[paymentStatus].setValue(paymentDetails);
 
 				this.sendRegisterRequest();
 			},
@@ -218,7 +232,6 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 			onClick: (data, actions) => {
 				doLog && console.log(LOG_TAG, 'onClick', data, actions);
 			},
-			/* enable-tslint */
 		};
 	}
 
@@ -226,13 +239,13 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 		const { value: formValue } = this.submitForm || {};
 		console.log(formValue);
 		if (formValue && $) {
-			// const response = await this._dataManager.sendRegisterEmail(formValue);
-			// doLog && console.log(LOG_TAG, 'submitForm', response);
+			const response = await this._dataManager.sendRegisterEmail(formValue);
+			doLog && console.log(LOG_TAG, 'submitForm', response);
 			$('.uk-preloader').fadeOut();
-			// $('.message-sent').fadeIn();
-			// _.delay(() => {
-			// 	$('.message-sent').fadeOut();
-			// }, 5000);
+			$('.message-sent').fadeIn();
+			_.delay(() => {
+				$('.message-sent').fadeOut();
+			}, 5000);
 			this.formSubmitted.emit({
 				formData: formValue,
 				isFormSubmitted: true,

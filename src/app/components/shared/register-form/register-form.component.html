@@ -119,8 +119,8 @@
 					/>
 					Transferencia / Depósito Bancario</label
 				>
-				<div class="payment-description" [ngClass]="{ active: paymentType.value === 'transfer' }">
-					<p>{{ paymentDescription }}</p>
+				<div class="payment-description transfer" [ngClass]="{ active: paymentType.value === 'transfer' }">
+					<div [innerHTML]="paymentDescription"></div>
 				</div>
 			</div>
 			<div class="radio-list-item">
