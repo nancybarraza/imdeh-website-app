@@ -53,7 +53,7 @@ export class AppSettings {
 
 	private hostUrl = {
 		DEV: 'http://localhost:3000/',
-		PROD: 'https://imdeh-api.herokuapp.com/',
+		PROD: 'https://imdeh-api-prod.herokuapp.com/',
 	};
 
 	public getApiCredentials() {
