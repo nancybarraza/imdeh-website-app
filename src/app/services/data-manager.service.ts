@@ -34,9 +34,10 @@ export class DataManagerService {
 		}
 	}
 
-	public async sendRegisterEmail(_emailRequest: any) {
-		const api = 'send-register-email';
-		const body = _emailRequest;
+	public async registerCourse(_registerRequest: any) {
+
+		const api = `course/register`;
+		const body = _registerRequest;
 		
 		try {
 			return this._webservices.request({
@@ -44,6 +45,22 @@ export class DataManagerService {
 				method: 'POST',
 				body,
 			});
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+
+	public async getCoursebyPath(_path: string) {
+		if (!_path) {
+			return;
+		}
+		const api = `course/${_path}`;
+		try {
+			return this._webservices.request({
+				api,
+				method: 'GET',
+			})
 		} catch (error) {
 			console.log(error);
 		}

@@ -4,9 +4,10 @@ import { Subscription } from 'rxjs';
 
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
-import { StaticManagerService } from '@services/index';
+import { DataManagerService, StaticManagerService } from '@services/index';
 
 import { IStaticData } from '@interfaces/index';
+
 
 declare let window: any;
 
@@ -25,7 +26,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 	 * @property {IStaticData} courseData
 	 * Stores the course data filtered by the route parameter to display it in the template
 	 */
-	public courseData: IStaticData;
+	public courseData;
 
 	/**
 	 * @property {Boolean} isFormSubmitted Receives the validation if the form was submitted or not.
@@ -48,7 +49,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 	 */
 	private routerSubscription: Subscription;
 
-	constructor(private staticManager: StaticManagerService, private _route: ActivatedRoute) {}
+	constructor(private staticManager: StaticManagerService, private _route: ActivatedRoute, private dataManager: DataManagerService) {}
 
 	/**
 	 * @method ngOnInit
@@ -103,9 +104,13 @@ export class RegisterComponent implements OnInit, OnDestroy {
 	 */
 	private async loadCourseData() {
 		try {
-			const results = (await this.staticManager.getCoursebyPath(this.currentPath)) || [];
-			if (results) {
-				this.courseData = results;
+			const results: any = await this.dataManager.getCoursebyPath(this.currentPath) || {};
+			
+			if (results.course) {
+				
+				this.courseData = results.course;
+
+				console.log(this.courseData);
 			}
 		} catch (err) {
 			throw new Error(`Error trying to get static data from service ${JSON.stringify(err)}`);

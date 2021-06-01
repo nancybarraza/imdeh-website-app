@@ -158,18 +158,20 @@
 		</p>
 	</div>
 
-	<!-- <re-captcha
+	<re-captcha
 		formControlName="captchaToken"
 		name="captchaToken"
 		required
 		class="captcha-field right"
 		siteKey="{{ captchaKey }}"
-	></re-captcha> -->
+	></re-captcha>
 
 	<div class="clearfix"></div>
 	<div class="buttons-container">
 		<ngx-paypal [config]="paypalConfig" *ngIf="isPaypalSelected && submitForm.valid"></ngx-paypal>
-
+		<p class="info warning" *ngIf="isPaypalSelected && !submitForm.valid">
+			Debes completar el formulario para ver las opciones de pago con Paypal.
+		</p>
 		<button
 			type="submit"
 			class="uk-button uk-button-default"

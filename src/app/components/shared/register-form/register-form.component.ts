@@ -26,7 +26,7 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 	@Input('course') public course;
 
 	@Output('formSubmitted') public formSubmitted: EventEmitter<{
-		formData: FormGroup;
+		formData,
 		isFormSubmitted: boolean;
 	}> = new EventEmitter();
 
@@ -105,10 +105,10 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 			imoLastName: new FormControl('', [Validators.required, Validators.minLength(4)]),
 			imoPhone: new FormControl('', [Validators.required, Validators.minLength(4)]),
 			imoEmail: new FormControl('', [Validators.required, Validators.minLength(4), Validators.email]),
-			// captchaToken: new FormControl('', [Validators.required, Validators.minLength(30)]),
+			captchaToken: new FormControl('', [Validators.required, Validators.minLength(30)]),
 			paymentType: new FormControl('office', [Validators.required]),
 			isTermsAccepted: new FormControl(false, [Validators.requiredTrue]),
-			paymentStatus: new FormControl({}),
+			paymentStatus: new FormControl('incomplete'),
 		});
 		if ($) {
 			$('.message-sent').fadeOut();
@@ -198,7 +198,7 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 					};
 					/* tslint:enable */
 					const paymentStatus = 'paymentStatus';
-					this.submitForm.controls[paymentStatus].setValue(paymentDetails);
+					this.submitForm.controls[paymentStatus].setValue(paymentDetails.status);
 				});
 			},
 			onClientAuthorization: (data) => {
@@ -219,7 +219,7 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 				};
 				/* tslint:enable */
 				const paymentStatus = 'paymentStatus';
-				this.submitForm.controls[paymentStatus].setValue(paymentDetails);
+				this.submitForm.controls[paymentStatus].setValue(paymentDetails.status);
 
 				this.sendRegisterRequest();
 			},
@@ -237,15 +237,17 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 
 	private async sendRegisterRequest() {
 		const { value: formValue } = this.submitForm || {};
-		console.log(formValue);
+
+		
+		const courseId = '_id';
 		if (formValue && $) {
-			const response = await this._dataManager.sendRegisterEmail(formValue);
+			const request = {
+				...formValue,
+				courseId: this.course[`${courseId}`],
+			};
+			const response = await this._dataManager.registerCourse(request);
 			doLog && console.log(LOG_TAG, 'submitForm', response);
 			$('.uk-preloader').fadeOut();
-			$('.message-sent').fadeIn();
-			_.delay(() => {
-				$('.message-sent').fadeOut();
-			}, 5000);
 			this.formSubmitted.emit({
 				formData: formValue,
 				isFormSubmitted: true,

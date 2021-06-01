@@ -43,13 +43,11 @@ export class AppSettings {
 			token: null,
 			apiKey: null,
 			captchaKey: '6LcOuyYTAAAAAHTjFuqhA52fmfJ_j5iFk5PsfXaU',
-			clientId: 'ATho_hxW_iQDulexHgI9u32_DoQAfg2gYRiQxJBqCe7eb14CiOMin5Z6XcX-UaLHUphEaUiUG_PnOd2B',
 		},
 		PROD: {
 			token: null,
 			apiKey: null,
 			captchaKey: '6LdOJu8ZAAAAAGbjwL_97_lduwsHdeFe6GEAlwQp',
-			clientId: '',
 		},
 	};
 
@@ -74,7 +72,6 @@ export class AppSettings {
 			captchaKey: credentials[0].captchaKey,
 			hostUrl,
 			apiKey: credentials[0].apiKey,
-			clientId: credentials[0].clientId,
 		};
 	}
 
@@ -110,8 +107,7 @@ export class AppSettings {
 	}
 
 	public getPaypalClientId() {
-		const credentials = this.getApiCredentials();
-		const clientId = credentials.clientId;
+		const { clientId } = environment;
 		return clientId;
 	}
 }
