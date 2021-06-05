@@ -8,7 +8,6 @@ import { DataManagerService, StaticManagerService } from '@services/index';
 
 import { IStaticData } from '@interfaces/index';
 
-
 declare let window: any;
 
 @Component({
@@ -104,10 +103,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
 	 */
 	private async loadCourseData() {
 		try {
-			const results: any = await this.dataManager.getCoursebyPath(this.currentPath) || {};
-			
+			const results: any = (await this.dataManager.getCoursebyPath(this.currentPath)) || {};
+
 			if (results.course) {
-				
 				this.courseData = results.course;
 
 				console.log(this.courseData);

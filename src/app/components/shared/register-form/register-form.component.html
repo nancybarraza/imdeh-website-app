@@ -1,7 +1,41 @@
 <form #registerForm id="contactForm" [formGroup]="submitForm">
 	<div>
-		<h3>Datos personales</h3>
 		<p class="payment-info">Para registrarte en Descubre, es importante llenes la siguiente información y elijas tu forma de pago.</p>
+
+		<h3>Datos del Programa</h3>
+
+		<div class="uk-grid uk-grid-match uk-grid-medium uk-child-width-1-2@m uk-child-width-1-1@s">
+			<div class="item uk-margin">
+				<input
+					type="text"
+					class="uk-input"
+					name="programName"
+					id="programName"
+					placeholder="Nombre del Programa"
+					formControlName="programName"
+					[value]="programName"
+					disabled
+				/>
+			</div>
+
+			<div class="item uk-margin">
+				<input
+					type="text"
+					class="uk-input"
+					name="programNumber"
+					id="programNumber"
+					placeholder="Número de Programa"
+					formControlName="programNumber"
+					maxlength="3"
+				/>
+				<div
+					*ngIf="programNumber.invalid && (programNumber.dirty || programNumber.touched)"
+					class="uk-form-danger alert alert-danger"
+				>
+					<div *ngIf="programNumber.errors.required">El campo Número de Programa es requerido.</div>
+				</div>
+			</div>
+		</div>
 
 		<div class="uk-grid uk-grid-match uk-grid-medium uk-child-width-1-2@m uk-child-width-1-1@s">
 			<div class="item uk-margin">

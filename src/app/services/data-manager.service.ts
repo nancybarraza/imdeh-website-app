@@ -35,10 +35,9 @@ export class DataManagerService {
 	}
 
 	public async registerCourse(_registerRequest: any) {
-
 		const api = `course/register`;
 		const body = _registerRequest;
-		
+
 		try {
 			return this._webservices.request({
 				api,
@@ -50,7 +49,6 @@ export class DataManagerService {
 		}
 	}
 
-
 	public async getCoursebyPath(_path: string) {
 		if (!_path) {
 			return;
@@ -60,7 +58,7 @@ export class DataManagerService {
 			return this._webservices.request({
 				api,
 				method: 'GET',
-			})
+			});
 		} catch (error) {
 			console.log(error);
 		}

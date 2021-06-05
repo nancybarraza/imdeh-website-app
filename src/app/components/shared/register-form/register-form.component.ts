@@ -26,7 +26,7 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 	@Input('course') public course;
 
 	@Output('formSubmitted') public formSubmitted: EventEmitter<{
-		formData,
+		formData;
 		isFormSubmitted: boolean;
 	}> = new EventEmitter();
 
@@ -75,8 +75,16 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 		return this.submitForm.get('isTermsAccepted');
 	}
 
+	get programNumber() {
+		return this.submitForm.get('programNumber');
+	}
+
 	private get paymentStatus() {
 		return this.submitForm.get('paymentStatus');
+	}
+
+	 get programName() {
+		return this.course ? this.course.name : '';
 	}
 
 	public paypalConfig: IPayPalConfig;
@@ -109,6 +117,9 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 			paymentType: new FormControl('office', [Validators.required]),
 			isTermsAccepted: new FormControl(false, [Validators.requiredTrue]),
 			paymentStatus: new FormControl('incomplete'),
+			programNumber: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.maxLength(3)]), // course
+			programName: new FormControl(this.programName, [Validators.minLength(4)]),
+		
 		});
 		if ($) {
 			$('.message-sent').fadeOut();
@@ -238,7 +249,6 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 	private async sendRegisterRequest() {
 		const { value: formValue } = this.submitForm || {};
 
-		
 		const courseId = '_id';
 		if (formValue && $) {
 			const request = {
