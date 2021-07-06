@@ -36,13 +36,6 @@ export const COACHES_LIST: IStaticData[] = [
 		socialMedia: [],
 		photo: 'assets/img/imdeh/vanessa.png',
 	},
-	// {
-	// 	name: 'Diana Chávez',
-	// 	path: 'diana-chavez',
-	// 	range: 'Entrenadora',
-	// 	socialMedia: [],
-	// 	photo: 'assets/img/imdeh/diana.png',
-	// },
 	{
 		name: 'Brandon Cid',
 		path: 'brandon-cid',

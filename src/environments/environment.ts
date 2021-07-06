@@ -6,7 +6,7 @@ export const environment = {
 	production: false,
 	doLog: true,
 	name: 'DEV',
-	clientId: 'AYqxsECruVGTzPdf9MFYbuwq1GozXVANEYRxJE2yam4-YdVr5Ubebg0IkY4w28SK4GsKWpR9PlH8YZbA',
+	clientId: 'AbYXpWHH-iYvI4VR8kQeBzzxcNKH-yndHUF2zaR2AGiOSkrUFOaATAjQmjYNf__EuF4YFA9Dzw-M49Ji',
 };
 
 /*

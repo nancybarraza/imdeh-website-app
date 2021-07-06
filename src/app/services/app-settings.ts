@@ -52,8 +52,8 @@ export class AppSettings {
 	};
 
 	private hostUrl = {
-		DEV: 'http://localhost:3000/',
-		PROD: 'https://imdeh-api-prod.herokuapp.com/',
+		DEV: 'http://localhost:3800/',
+		PROD: 'http://localhost:3800/',
 	};
 
 	public getApiCredentials() {
@@ -82,6 +82,7 @@ export class AppSettings {
 	 * @return {String}
 	 */
 	private getEnvironment() {
+		console.log(environment.name);
 		return environment.name;
 	}
 
@@ -107,7 +108,7 @@ export class AppSettings {
 	}
 
 	public getPaypalClientId() {
-		const { clientId } = environment;
+		const clientId = environment.clientId;
 		return clientId;
 	}
 }

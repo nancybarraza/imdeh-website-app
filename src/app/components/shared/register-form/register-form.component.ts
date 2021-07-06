@@ -83,7 +83,7 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 		return this.submitForm.get('paymentStatus');
 	}
 
-	 get programName() {
+	get programName() {
 		return this.course ? this.course.name : '';
 	}
 
@@ -117,9 +117,8 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 			paymentType: new FormControl('office', [Validators.required]),
 			isTermsAccepted: new FormControl(false, [Validators.requiredTrue]),
 			paymentStatus: new FormControl('incomplete'),
-			programNumber: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.maxLength(3)]), // course
+			programNumber: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.maxLength(3)]), // course
 			programName: new FormControl(this.programName, [Validators.minLength(4)]),
-		
 		});
 		if ($) {
 			$('.message-sent').fadeOut();
@@ -151,9 +150,10 @@ export class RegisterFormComponent implements OnInit, OnChanges {
 	}
 
 	private setPaypalConfig() {
+		const clientId = this.appSettings.getPaypalClientId();
 		this.paypalConfig = {
 			currency: 'MXN',
-			clientId: this.appSettings.getPaypalClientId(),
+			clientId,
 			/* disable-ts-lint */
 			createOrderOnClient: (data) =>
 				/* tslint:disable-next-line */

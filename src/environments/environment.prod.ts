@@ -2,5 +2,5 @@ export const environment = {
 	production: true,
 	doLog: false,
 	name: 'PROD',
-	clientId: 'AbYXpWHH-iYvI4VR8kQeBzzxcNKH-yndHUF2zaR2AGiOSkrUFOaATAjQmjYNf__EuF4YFA9Dzw-M49Ji',
+	clientId: 'AQbLAJ6IwPPccti6kbne1kijPjSFyZrypJ_KitJ8u1hiab5GTzgSoRKtx28X0I7X1QKAJBmabsLENw5v',
 };

@@ -12,7 +12,7 @@
 					</p>
 
 					<a routerLink="/contacto" class="uk-button uk-button-default">Conocer más</a>
-					<a href="https://www.youtube.com/watch?v=MMd_nkETqNY" class="video-btn popup-youtube"
+					<a href="https://www.youtube.com/watch?v=MHp3OXFmi7U" class="video-btn popup-youtube"
 						><span uk-icon="play"></span> Ver video</a
 					>
 				</div>
@@ -284,22 +284,8 @@
 
 	<div class="team-slides owl-carousel owl-theme">
 		<div class="single-team" *ngFor="let coach of coachesList">
-			<ul class="team-social">
-				<li>
-					<a href="#"><i class="flaticon-logo"></i></a>
-				</li>
-				<li>
-					<a href="#"><i class="flaticon-twitter"></i></a>
-				</li>
-				<li>
-					<a href="#"><i class="flaticon-linkedin"></i></a>
-				</li>
-				<li>
-					<a href="#"><i class="flaticon-logo-1"></i></a>
-				</li>
-			</ul>
 			<figure class="team-picture">
-				<img src="{{ coach.photo }}" alt="{{ coach.name }}" />
+				<a [routerLink]="['/entrenador/', coach.path]"> <img src="{{ coach.photo }}" alt="{{ coach.name }}" /> </a>
 			</figure>
 
 			<div class="team-content">
