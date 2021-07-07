@@ -1,8 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
-import { NavigationCancel, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { ActivatedRoute, NavigationCancel, NavigationEnd, NavigationStart, Router } from '@angular/router';
 
-import { filter } from 'rxjs/operators';
+import { Meta, Title } from '@angular/platform-browser';
+
+import { filter, map } from 'rxjs/operators';
+
+import { COACHES_LIST, COURSES_LIST } from './static';
 
 import { Subscription } from 'rxjs';
 
@@ -31,7 +35,7 @@ export class AppComponent implements OnInit, OnDestroy {
 	 */
 	public title = 'imdeh-website-app';
 
-	constructor(private router: Router) {}
+	constructor(private router: Router, private titleService: Title, private metaService: Meta, private activatedRoute: ActivatedRoute) {}
 
 	/**
 	 * @method ngOnInit
@@ -41,6 +45,18 @@ export class AppComponent implements OnInit, OnDestroy {
 	 */
 	public ngOnInit() {
 		this.recallJsFuntions();
+		this.router.events
+			.pipe(
+				filter((event) => event instanceof NavigationEnd),
+				map(() => {
+					const currentRoute = this.activatedRoute.firstChild.snapshot;
+					this.setupMetaTags(currentRoute);
+					return this.createTitle(currentRoute);			
+				})
+			)
+			.subscribe((title: string) => {
+				this.titleService.setTitle(title);
+			});
 	}
 
 	/**
@@ -66,6 +82,93 @@ export class AppComponent implements OnInit, OnDestroy {
 				}
 				window.scrollTo(0, 0);
 			});
+	}
+
+	private setupMetaTags(route) {
+		const { params, data, url } = route;
+		const { metas = [] } = data || {};
+		const { name: sectionName = '', course: sectionCourse = '' } = params;
+		const { path: sectionPath = '' } = url[0] || {};
+
+		const currentTags = this.metaService.getTags('name');
+		
+		if (currentTags.find(t => t.name === 'keywords' || t.name === 'description')) {
+			this.metaService.removeTag('name="keywords"');
+			this.metaService.removeTag('name="description"');
+		}
+
+		if (!sectionPath) {
+			this.metaService.addTags(metas);
+			return;
+		}
+
+		if ((sectionCourse && sectionCourse !== '') || (sectionName && sectionName !== '')) {
+			const section = sectionName || sectionCourse;
+			const { metas: metaData = [] } = this.getCourseData(section) || this.getCoachData(section);
+			if (metaData.length > 0) {
+				this.metaService.addTags(metaData);
+			}
+			return;
+		}
+			
+		this.metaService.addTags(metas);
+		
+	}
+
+	/**
+	 * @method createTitle
+	 * Creates the dynamic title to render in the header based on the route parameters.
+	 * @param {object} route Stores the route parameters.
+	 * @return {string}
+	 */
+	private createTitle(route) {
+		const { params, data, url } = route;
+		const { title = '' } = data;
+		const { name: sectionName = '', course: sectionCourse = '' } = params;
+		const { path: sectionPath = '' } = url[0] || {};
+		let newTitle = this.titleService.getTitle();
+		if (sectionPath && sectionPath !== '' &&
+			((sectionName && sectionName !== '') || (sectionCourse !== '' && sectionCourse !== ''))) {
+			if (sectionPath === 'entrenador') {
+				const { name: coachName = ''} = this.getCoachData(sectionName) || {name: ''};
+				newTitle = title.replace(':name', coachName);
+			}
+			if (sectionPath === 'entrenamiento') {
+				const { name: courseName = ''} = this.getCourseData(sectionName) || {name: ''};
+				newTitle = title.replace(':name', courseName);
+			}
+			if (sectionPath === 'registro') {
+				const { name: courseName = ''} = this.getCourseData(sectionCourse) || {name: ''};
+				newTitle = title.replace(':course', courseName);
+			}
+		} else {
+				newTitle = title;
+		}
+		return newTitle;
+	}
+
+	/**
+	 * @method getCourseData
+	 * Retrieves the course data from the route selected. 
+	 * @param {object} item stores the item data
+	 * @return {void}
+	 */
+	private getCourseData(item) {
+		return COURSES_LIST.find((course) => {
+			return course.path === item;
+		});
+	}
+
+	/**
+	 * @method getCoachData
+	 * Retrieves the coach data from the route selected. 
+	 * @param {object} item stores the item data
+	 * @return {void}
+	 */
+	private getCoachData(item) {
+		return COACHES_LIST.find((coach) => {
+			return coach.path === item;
+		});
 	}
 
 	/**

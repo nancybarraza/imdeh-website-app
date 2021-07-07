@@ -7,4 +7,5 @@ export interface IStaticData {
 	template?: string;
 	icon?: string;
 	price?: number;
+	metas?: any[]
 }

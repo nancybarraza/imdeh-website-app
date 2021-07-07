@@ -43,10 +43,10 @@ export const COURSES_LIST: IStaticData[] = [
 		template: 'high-direction',
 		icon: 'flaticon-analytics-1',
 	},
-	{
-		name: 'Sombra',
-		path: 'sombra',
-		template: 'shadow',
-		icon: 'icon-shadow',
-	},
+	// {
+	// 	name: 'Sombra',
+	// 	path: 'sombra',
+	// 	template: 'shadow',
+	// 	icon: 'icon-shadow',
+	// },
 ];
